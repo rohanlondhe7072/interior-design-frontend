@@ -636,3 +636,7 @@ header > div a {
     }
 }
 
+body {
+    border: 10px solid red !important;
+}
+
