@@ -989,3 +989,322 @@ body {
   text-decoration: none;
   border-radius: 10px;
 }
+
+
+/* ===============================
+   RESET & BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
+               Arial, sans-serif;
+  color: #222;
+  background: #f6f6f6;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* ===============================
+   HEADER (GLOBAL – HOME SAFE)
+================================ */
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+}
+
+.main-header .logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.main-header nav a {
+  margin-left: 20px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* ❌ REMOVE GLOBAL CENTERING */
+/* .header-inner { max-width: 1200px; } */
+
+/* ===============================
+   KITCHEN PAGE HEADER ONLY
+================================ */
+.kitchen-page .header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kitchen-page .nav-links a.active {
+  color: #e53935;
+  font-weight: 600;
+}
+
+/* ===============================
+   BREADCRUMB
+================================ */
+.breadcrumb {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ===============================
+   PAGE INTRO
+================================ */
+.page-intro {
+  max-width: 1200px;
+  margin: 20px auto 40px;
+  padding: 0 20px;
+}
+
+.page-intro h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.intro-text {
+  max-width: 900px;
+  color: #555;
+  font-size: 16px;
+}
+
+.results-count {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ===============================
+   CATEGORY TABS
+================================ */
+.category-tabs {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px 20px;
+  display: flex;
+  gap: 22px;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-tabs a {
+  padding-bottom: 10px;
+  font-size: 15px;
+  color: #555;
+}
+
+.category-tabs a.active {
+  color: #e53935;
+  border-bottom: 2px solid #e53935;
+  font-weight: 600;
+}
+
+/* ===============================
+   DESIGN LIST (GRID)
+================================ */
+.design-list {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.design-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.design-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.design-card img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.design-card h3 {
+  font-size: 16px;
+  padding: 14px 16px 6px;
+}
+
+.design-card p {
+  padding: 0 16px 16px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===============================
+   INFO SECTION
+================================ */
+.info-section {
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.info-section h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.info-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.info-box {
+  background: #f9f9f9;
+  padding: 22px;
+  border-radius: 14px;
+}
+
+.info-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.info-box p {
+  font-size: 15px;
+  color: #555;
+}
+
+/* ===============================
+   CTA SECTION
+================================ */
+.cta-section {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.cta-section h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.cta-section p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 14px 32px;
+  background: #e53935;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.cta-btn:hover {
+  background: #c62828;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .page-intro h1 {
+    font-size: 26px;
+  }
+
+  .category-tabs {
+    overflow-x: auto;
+  }
+
+  .category-tabs a {
+    white-space: nowrap;
+  }
+
+  .cta-section h2 {
+    font-size: 24px;
+  }
+}
+
+/* ===============================
+   FIX NAVBAR BUTTON STYLE
+   ONLY FOR KITCHEN PAGE
+================================ */
+.kitchen-page .nav-links a {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: #444;
+}
+
+.kitchen-page .nav-links a.active {
+  color: #e53935;
+  font-weight: 600;
+}
+
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.home-page .header-inner {
+  max-width: 100%;
+  padding: 14px 40px;
+}
+
+.kitchen-page .header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+}
+
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  font-size: 15px;
+  color: #444;
+}
+
+.nav-links a.active {
+  color: #e53935;
+  font-weight: 600;
+}
