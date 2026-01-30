@@ -852,3 +852,76 @@ body {
     padding: 40px 20px;
   }
 }
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width: 600px) {
+
+  .landing-page {
+    flex-direction: column;
+  }
+
+  /* HERO / LEFT SECTION */
+  .landing-left {
+    min-height: 60vh;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .landing-left h1 {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .landing-left h1 span {
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  .landing-left p {
+    font-size: 15px;
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* FORM SECTION */
+  .landing-right {
+    padding: 20px 16px 40px;
+  }
+
+  .form-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 26px 22px;
+    border-radius: 16px;
+    margin-top: -40px; /* pulls card upward */
+  }
+
+  .form-card h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .step-indicator {
+    top: 14px;
+    right: 16px;
+  }
+
+  .form-group input {
+    padding: 13px;
+    font-size: 15px;
+  }
+
+  .next-btn {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .terms {
+    text-align: center;
+    font-size: 11px;
+  }
+}
+
+
