@@ -43,15 +43,14 @@
 
         <h2>Designs for Every Budget</h2>
 
-        <!-- ✅ PHP BACKEND CONNECTED FORM -->
-        <form action="save-lead.html" method="POST">
+        <!-- ✅ GITHUB PAGES COMPATIBLE FORM -->
+        <form id="leadForm">
 
           <div class="form-group">
             <label for="name">Name</label>
             <input
               type="text"
               id="name"
-              name="name"
               placeholder="Enter your name"
               required
             >
@@ -62,7 +61,6 @@
             <input
               type="text"
               id="phone"
-              name="phone"
               placeholder="Enter phone number"
               required
             >
@@ -89,6 +87,28 @@
     </div>
 
   </section>
+
+  <!-- ✅ JS HANDLE SUBMIT -->
+  <script>
+    document.getElementById("leadForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (name === "" || phone === "") {
+        alert("Please fill all fields");
+        return;
+      }
+
+      // demo purpose
+      console.log("Name:", name);
+      console.log("Phone:", phone);
+
+      // redirect like PHP header()
+      window.location.href = "thank-you.html";
+    });
+  </script>
 
 </body>
 </html>
