@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interior Designers in Pune | Free Consultation</title>
+
+  <!-- SEO -->
+  <meta
+    name="description"
+    content="Get expert interior designers in Pune. Free consultation and designs for every budget."
+  >
+  <meta
+    name="keywords"
+    content="interior designers pune, home interiors, modular kitchen, bedroom design"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============== LANDING PAGE ============== -->
+  <section class="landing-page">
+
+    <!-- LEFT CONTENT -->
+    <div class="landing-left">
+      <h1>Interior Designers in <span>Pune</span></h1>
+      <p>
+        Hassle-free home interiors with our best interior designers.
+        Designs for every budget.
+      </p>
+    </div>
+
+    <!-- RIGHT FORM CARD -->
+    <div class="landing-right">
+      <div class="form-card">
+
+        <!-- STEP INDICATOR -->
+        <div class="step-indicator">
+          <span class="active-step">1</span>/<span>2</span>
+        </div>
+
+        <h2>Designs for Every Budget</h2>
+
+        <!-- ✅ PHP BACKEND CONNECTED FORM -->
+        <form action="save-lead.php" method="POST">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Enter phone number"
+              required
+            >
+          </div>
+
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="whatsapp" checked disabled>
+            <label for="whatsapp">Send me updates on WhatsApp</label>
+          </div>
+
+          <button type="submit" class="next-btn">
+            NEXT
+          </button>
+
+          <p class="terms">
+            By submitting this form, you agree to our
+            <a href="#">privacy policy</a> &
+            <a href="#">terms and conditions</a>.
+          </p>
+
+        </form>
+
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
