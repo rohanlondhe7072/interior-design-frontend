@@ -3,19 +3,545 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interior Design Ideas | Home Interiors</title>
+    <title>Premium Interior Design Ideas | Home Interiors</title>
 
     <!-- SEO Meta -->
     <meta
       name="description"
-      content="Explore interior design ideas for kitchen, bedroom, living room and more. Get inspired with modern home interior designs."
+      content="Explore premium interior design ideas for kitchen, bedroom, living room and more. Get inspired with modern home interior designs."
     />
     <meta
       name="keywords"
-      content="interior design ideas, kitchen design, bedroom design, living room design"
+      content="interior design ideas, kitchen design, bedroom design, living room design, premium interiors"
     />
 
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ===== PREMIUM ENHANCEMENTS ===== */
+      
+      .main-header {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        padding: 12px 60px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo h1 {
+        font-size: 28px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #ff6b9f, #667eea);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.5px;
+      }
+
+      .main-nav ul {
+        gap: 40px;
+      }
+
+      .main-nav a {
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+        color: #333;
+        transition: color 0.3s ease;
+      }
+
+      .main-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b9f, #667eea);
+        transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .main-nav a:hover::after {
+        width: 100%;
+      }
+
+      .cta a {
+        background: linear-gradient(135deg, #ff6b9f 0%, #ff9a6b 100%);
+        padding: 14px 32px !important;
+        border-radius: 8px;
+        font-weight: 700;
+        box-shadow: 0 8px 25px rgba(255, 107, 159, 0.3);
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .cta a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(255, 107, 159, 0.45);
+      }
+
+      /* HERO ENHANCEMENT */
+      .hero {
+        min-height: 85vh;
+        padding: 80px 60px;
+      }
+
+      .hero h2 {
+        font-size: 70px !important;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        font-weight: 900;
+        letter-spacing: -1.5px;
+      }
+
+      .hero p {
+        font-size: 22px !important;
+        margin-bottom: 50px;
+        max-width: 700px;
+        line-height: 1.7;
+      }
+
+      .hero input {
+        width: 420px !important;
+        padding: 18px 24px !important;
+        font-size: 16px !important;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero button {
+        padding: 18px 48px !important;
+        font-size: 17px !important;
+        border-radius: 12px;
+        box-shadow: 0 10px 35px rgba(255, 107, 159, 0.35);
+      }
+
+      /* CATEGORY SECTION */
+      .category-section {
+        padding: 100px 60px;
+      }
+
+      .category-section h2 {
+        font-size: 48px !important;
+        margin-bottom: 60px;
+      }
+
+      .category-grid {
+        gap: 32px !important;
+      }
+
+      .category-card {
+        height: 280px !important;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .category-overlay h3 {
+        font-size: 22px !important;
+      }
+
+      .category-overlay p {
+        font-size: 14px;
+      }
+
+      /* FILTER SECTION */
+      .filter-section {
+        padding: 100px 60px;
+      }
+
+      .filter-section h2 {
+        font-size: 48px !important;
+        margin-bottom: 60px;
+      }
+
+      .filter-box {
+        padding: 50px 50px !important;
+        gap: 30px !important;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.12);
+      }
+
+      .filter-item label {
+        font-size: 15px !important;
+        font-weight: 700;
+      }
+
+      .filter-item select {
+        padding: 16px 14px !important;
+        font-size: 15px !important;
+        border-radius: 12px;
+      }
+
+      .filter-action button {
+        padding: 18px !important;
+        font-size: 16px !important;
+      }
+
+      /* DESIGN SECTION */
+      .design-section {
+        padding: 100px 60px;
+      }
+
+      .section-title {
+        font-size: 48px !important;
+        margin-bottom: 60px;
+        font-weight: 900;
+      }
+
+      .design-grid {
+        gap: 35px !important;
+      }
+
+      .design-card {
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .design-card img {
+        height: 280px !important;
+        border-radius: 18px 18px 0 0;
+      }
+
+      .card-content {
+        padding: 28px !important;
+      }
+
+      .card-content h3 {
+        font-size: 20px !important;
+        margin-bottom: 12px;
+      }
+
+      .card-content p {
+        font-size: 15px;
+        margin-bottom: 18px;
+      }
+
+      .card-content a {
+        font-size: 15px !important;
+        font-weight: 700;
+        color: #ff6b9f;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .card-content a:hover {
+        color: #ff9a6b;
+        transform: translateX(5px);
+      }
+
+      /* MAGAZINE SECTION */
+      .magazine-section {
+        padding: 100px 60px;
+        background: linear-gradient(135deg, #f5f7ff 0%, #fff5f7 100%);
+      }
+
+      .magazine-section h2 {
+        font-size: 48px !important;
+        margin-bottom: 60px;
+      }
+
+      .magazine-grid {
+        gap: 35px !important;
+      }
+
+      .magazine-card {
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+        background: white;
+      }
+
+      .magazine-card img {
+        height: 280px !important;
+        border-radius: 18px 18px 0 0;
+      }
+
+      .magazine-content {
+        padding: 28px !important;
+      }
+
+      .magazine-content h3 {
+        font-size: 20px !important;
+        margin-bottom: 12px;
+      }
+
+      .magazine-content p {
+        font-size: 15px;
+        margin-bottom: 18px;
+      }
+
+      .magazine-content a {
+        font-size: 15px !important;
+        color: #ff6b9f;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .magazine-content a:hover {
+        color: #ff9a6b;
+        transform: translateX(5px);
+      }
+
+      /* CTA SECTION PREMIUM */
+      .cta-section {
+        padding: 120px 60px;
+        background: linear-gradient(135deg, #ff6b9f 0%, #ff9a6b 50%, #667eea 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,96C672,96,768,128,864,128C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+        opacity: 0.3;
+        animation: float 8s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-content h2 {
+        font-size: 52px !important;
+        margin-bottom: 20px;
+        color: white;
+        font-weight: 900;
+      }
+
+      .cta-content p {
+        font-size: 20px !important;
+        color: rgba(255, 255, 255, 0.95);
+        margin-bottom: 50px;
+      }
+
+      .cta-buttons {
+        gap: 30px !important;
+      }
+
+      .cta-primary, .cta-secondary {
+        padding: 18px 50px !important;
+        font-size: 16px !important;
+        border-radius: 12px;
+      }
+
+      .cta-primary {
+        background: white;
+        color: #ff6b9f;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .cta-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      /* FOOTER PREMIUM */
+      .site-footer {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        padding: 80px 60px 30px;
+      }
+
+      .footer-grid {
+        gap: 60px !important;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand h3 {
+        font-size: 24px;
+        background: linear-gradient(135deg, #ff6b9f, #667eea);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ANIMATIONS */
+      @keyframes slideInStaggered {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+
+      .category-card {
+        animation: slideInStaggered 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+
+      .category-card:nth-child(1) { animation-delay: 0.1s; }
+      .category-card:nth-child(2) { animation-delay: 0.2s; }
+      .category-card:nth-child(3) { animation-delay: 0.3s; }
+      .category-card:nth-child(4) { animation-delay: 0.4s; }
+      .category-card:nth-child(5) { animation-delay: 0.5s; }
+      .category-card:nth-child(n+6) { animation-delay: 0.6s; }
+
+      .design-card {
+        animation: slideInStaggered 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+
+      .design-card:nth-child(1) { animation-delay: 0.1s; }
+      .design-card:nth-child(2) { animation-delay: 0.2s; }
+      .design-card:nth-child(3) { animation-delay: 0.3s; }
+      .design-card:nth-child(4) { animation-delay: 0.4s; }
+      .design-card:nth-child(5) { animation-delay: 0.5s; }
+      .design-card:nth-child(6) { animation-delay: 0.6s; }
+
+      .magazine-card {
+        animation: slideInStaggered 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+
+      .magazine-card:nth-child(1) { animation-delay: 0.1s; }
+      .magazine-card:nth-child(2) { animation-delay: 0.25s; }
+      .magazine-card:nth-child(3) { animation-delay: 0.4s; }
+
+      /* RESPONSIVE PREMIUM */
+      @media (max-width: 1024px) {
+        .hero {
+          padding: 60px 40px;
+        }
+
+        .hero h2 {
+          font-size: 52px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+
+        .hero input {
+          width: 100% !important;
+        }
+
+        .category-section, .filter-section, .design-section, .magazine-section {
+          padding: 80px 40px;
+        }
+
+        .category-section h2, .filter-section h2, .design-section h2, .magazine-section h2 {
+          font-size: 36px !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-header {
+          padding: 12px 20px;
+        }
+
+        .logo h1 {
+          font-size: 20px;
+        }
+
+        .main-nav ul {
+          gap: 20px;
+        }
+
+        .main-nav a {
+          font-size: 14px;
+        }
+
+        .hero {
+          min-height: 70vh;
+          padding: 50px 20px;
+        }
+
+        .hero h2 {
+          font-size: 40px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        .hero input {
+          width: 100% !important;
+          padding: 14px 16px !important;
+        }
+
+        .hero button {
+          padding: 14px 32px !important;
+        }
+
+        .category-section, .filter-section, .design-section, .magazine-section {
+          padding: 60px 20px;
+        }
+
+        .category-section h2, .filter-section h2, .design-section h2, .magazine-section h2 {
+          font-size: 28px !important;
+        }
+
+        .category-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 20px !important;
+        }
+
+        .category-card {
+          height: 200px !important;
+        }
+
+        .design-grid {
+          grid-template-columns: 1fr !important;
+          gap: 25px !important;
+        }
+
+        .magazine-grid {
+          grid-template-columns: 1fr !important;
+          gap: 25px !important;
+        }
+
+        .cta-section {
+          padding: 80px 20px;
+        }
+
+        .cta-content h2 {
+          font-size: 32px !important;
+        }
+
+        .cta-content p {
+          font-size: 16px !important;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          gap: 15px !important;
+        }
+
+        .cta-primary, .cta-secondary {
+          padding: 14px 28px !important;
+          font-size: 14px !important;
+        }
+      }
+    </style>
   </head>
   <body class="home-page">
     <!-- ================= HEADER ================= -->
@@ -64,13 +590,13 @@
     <!-- ================= HERO SECTION ================= -->
     <section class="hero">
       <h2>Design Ideas for Every Home</h2>
-      <p>Discover inspiring interior design ideas curated by professionals.</p>
+      <p>Discover premium interior design ideas curated by professional architects and designers.</p>
 
       <form id="searchForm">
         <input
           type="text"
           id="searchInput"
-          placeholder="Search design ideas (e.g. modular kitchen)"
+          placeholder="Search design ideas (e.g. modular kitchen, bedroom, living room)"
           required
         />
         <button type="submit">Search</button>
@@ -89,7 +615,6 @@
               alt="Modular Kitchen Design"
               loading="lazy"
             />
-
             <div class="category-overlay">
               <h3>Modular Kitchen</h3>
               <p>3000+ Designs</p>
@@ -322,6 +847,18 @@
             <option>Bedroom</option>
             <option>Living Room</option>
             <option>Bathroom</option>
+            <option>Wardrobe</option>
+            <option>Balcony</option>
+            <option>Dining Room</option>
+            <option>Kids Bedroom</option>
+            <option>Pooja Room</option>
+            <option>Home Office</option>
+            <option>TV Unit</option>
+            <option>False Ceiling</option>
+            <option>Entrance / Foyer</option>
+            <option>Guest Bedroom</option>
+            <option>Utility Room</option>
+            <option>Storage & Cabinets</option>
           </select>
         </div>
 
@@ -368,8 +905,8 @@
           />
           <div class="card-content">
             <h3>Modern Modular Kitchen</h3>
-            <p>Sleek cabinets with smart storage solutions.</p>
-            <a href="#">View Design</a>
+            <p>Sleek cabinets with smart storage solutions and premium finishes.</p>
+            <a href="kitchen-modern-low.html">View Design</a>
           </div>
         </article>
 
@@ -385,8 +922,8 @@
           />
           <div class="card-content">
             <h3>Contemporary Living Room</h3>
-            <p>Elegant space with neutral tones.</p>
-            <a href="#">View Design</a>
+            <p>Elegant space with neutral tones and modern lighting design.</p>
+            <a href="living-room.html">View Design</a>
           </div>
         </article>
 
@@ -402,8 +939,8 @@
           />
           <div class="card-content">
             <h3>Minimal Bedroom</h3>
-            <p>Comfort meets simplicity.</p>
-            <a href="#">View Design</a>
+            <p>Comfort meets simplicity with clean lines and serene aesthetics.</p>
+            <a href="bedroom.html">View Design</a>
           </div>
         </article>
 
@@ -419,8 +956,8 @@
           />
           <div class="card-content">
             <h3>Sliding Wardrobe</h3>
-            <p>Modern space-saving storage.</p>
-            <a href="#">View Design</a>
+            <p>Modern space-saving storage with sliding door mechanisms.</p>
+            <a href="wardrobe.html">View Design</a>
           </div>
         </article>
 
@@ -437,8 +974,8 @@
           />
           <div class="card-content">
             <h3>Modern Dining Room</h3>
-            <p>Stylish dining setup with warm lighting.</p>
-            <a href="#">View Design</a>
+            <p>Stylish dining setup with warm lighting and premium furniture.</p>
+            <a href="dining-room.html">View Design</a>
           </div>
         </article>
 
@@ -455,8 +992,8 @@
           />
           <div class="card-content">
             <h3>Home Office Interior</h3>
-            <p>Functional workspace with a modern touch.</p>
-            <a href="#">View Design</a>
+            <p>Functional workspace with modern ergonomic design principles.</p>
+            <a href="bedroom.html">View Design</a>
           </div>
         </article>
       </div>
@@ -476,8 +1013,7 @@
           <div class="magazine-content">
             <h3>How to Design a Small Kitchen</h3>
             <p>
-              Learn smart space-saving tricks and efficient layout ideas for
-              compact kitchens.
+              Learn smart space-saving tricks and efficient layout ideas for compact kitchens to maximize functionality.
             </p>
             <a href="#">Read More →</a>
           </div>
@@ -492,8 +1028,7 @@
           <div class="magazine-content">
             <h3>Best Colors for Living Room</h3>
             <p>
-              Choose colors that make your living room look brighter, bigger,
-              and welcoming.
+              Choose colors that make your living room look brighter, bigger, and welcoming for family gatherings.
             </p>
             <a href="#">Read More →</a>
           </div>
@@ -508,8 +1043,7 @@
           <div class="magazine-content">
             <h3>Modern Bedroom Storage Ideas</h3>
             <p>
-              Discover smart furniture solutions to keep your bedroom
-              clutter-free.
+              Discover smart furniture solutions to keep your bedroom clutter-free and organized in style.
             </p>
             <a href="#">Read More →</a>
           </div>
@@ -522,13 +1056,12 @@
       <div class="cta-content">
         <h2>Ready to Design Your Dream Home?</h2>
         <p>
-          Get expert interior designers and personalized solutions tailored for
-          your space.
+          Connect with expert interior designers and get personalized solutions tailored specifically for your space and budget.
         </p>
 
         <div class="cta-buttons">
           <a href="#" class="cta-primary">Get Free Consultation</a>
-          <a href="#" class="cta-secondary">View Design Ideas</a>
+          <a href="#" class="cta-secondary">View All Designs</a>
         </div>
       </div>
     </section>
@@ -538,7 +1071,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>InteriorDesign</h3>
-          <p>Your trusted home interior design partner.</p>
+          <p>Your trusted premium interior design partner for creating beautiful, functional living spaces.</p>
         </div>
 
         <div class="footer-links">
@@ -559,13 +1092,12 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 InteriorDesign. All rights reserved.</p>
+        <p>© 2026 InteriorDesign. All rights reserved. Crafted with care for your home.</p>
       </div>
     </footer>
 
     <!-- Search Handler Script -->
     <script>
-      // Map search terms to corresponding HTML pages
       const searchMap = {
         'kitchen': 'kitchen.html',
         'modular kitchen': 'kitchen.html',
@@ -603,7 +1135,6 @@
         'cabinets': 'storage-cabinets.html'
       };
 
-      // Attach search handler when DOM is ready
       document.addEventListener('DOMContentLoaded', function() {
         const searchForm = document.getElementById('searchForm');
         if (searchForm) {
@@ -622,14 +1153,11 @@
           return;
         }
 
-        // Check if the search term exists in our map
         const page = searchMap[searchTerm];
         
         if (page) {
-          // Redirect to the corresponding page
           window.location.href = page;
         } else {
-          // Show error message for unrecognized search term
           alert(`Sorry, we don't have designs for "${searchTerm}". Please try: kitchen, bedroom, living room, bathroom, wardrobe, balcony, dining room, kids bedroom, etc.`);
           searchInput.focus();
           searchInput.select();
