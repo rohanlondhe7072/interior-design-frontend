@@ -111,6 +111,37 @@
         display: block;
       }
 
+      /* HAMBURGER MENU */
+      .hamburger-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        gap: 6px;
+      }
+
+      .hamburger-menu span {
+        width: 28px;
+        height: 3px;
+        background: linear-gradient(135deg, #ff6b9f, #667eea);
+        border-radius: 2px;
+        transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(12px, 12px);
+      }
+
+      .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
       .cta {
         margin-left: auto;
       }
@@ -962,54 +993,102 @@
       @media (max-width: 768px) {
         .main-header {
           padding: 12px 15px;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          align-items: center;
         }
 
         .logo h1 {
           font-size: 18px;
-          width: 100%;
-          margin-bottom: 10px;
+          margin: 0;
+          flex-shrink: 0;
+        }
+
+        .hamburger-menu {
+          display: flex;
+          order: 2;
+          margin-left: auto;
+          margin-right: 10px;
         }
 
         .main-nav {
+          position: fixed;
+          top: 60px;
+          left: 0;
           width: 100%;
+          height: calc(100vh - 60px);
+          background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
           margin: 0;
-          order: 3;
+          padding: 20px 0;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+          z-index: 999;
+        }
+
+        .main-nav.active {
+          max-height: 100vh;
         }
 
         .main-nav ul {
-          gap: 15px;
-          font-size: 12px;
-          flex-wrap: wrap;
-          justify-content: center;
+          gap: 0;
+          font-size: 14px;
+          flex-direction: column;
+          justify-content: flex-start;
+          flex-wrap: nowrap;
+          padding: 0 15px;
+        }
+
+        .main-nav li {
+          border-bottom: 1px solid #eee;
+          padding: 15px 0;
         }
 
         .main-nav a {
-          font-size: 12px;
+          font-size: 14px;
+          display: block;
+        }
+
+        .dropdown-parent:hover .dropdown {
+          display: none;
+        }
+
+        .dropdown-parent {
+          position: relative;
         }
 
         .dropdown {
-          min-width: 150px;
-          padding: 10px;
+          display: none;
+          position: static;
+          background: #f0f1ff;
+          box-shadow: none;
+          min-width: 100%;
+          padding: 10px 0 10px 20px;
+          margin-top: 10px;
+          border-radius: 0;
+        }
+
+        .dropdown.active {
+          display: block;
         }
 
         .dropdown a {
-          font-size: 12px;
+          font-size: 13px;
           padding: 8px 0;
+          display: block;
         }
 
         .cta {
           margin-left: 0;
-          width: 100%;
-          order: 2;
-          margin-bottom: 10px;
+          order: 3;
+          margin-left: 10px;
+          flex-shrink: 0;
         }
 
         .cta a {
-          width: 100%;
-          text-align: center;
-          padding: 11px 20px !important;
+          padding: 10px 14px !important;
           font-size: 12px;
+          white-space: nowrap;
         }
 
         .hero {
@@ -1266,12 +1345,26 @@
 
       /* ===== EXTRA SMALL MOBILE (max-width: 480px) ===== */
       @media (max-width: 480px) {
+        .logo h1 {
+          font-size: 16px;
+        }
+
+        .hamburger-menu span {
+          width: 24px;
+          height: 2.5px;
+        }
+
         .main-nav ul {
-          gap: 10px;
-          font-size: 11px;
+          gap: 0;
+          font-size: 13px;
         }
 
         .main-nav a {
+          font-size: 13px;
+        }
+
+        .cta a {
+          padding: 8px 10px !important;
           font-size: 11px;
         }
 
@@ -1334,7 +1427,13 @@
         <h1>InteriorDesign</h1>
       </div>
 
-      <nav class="main-nav">
+      <button class="hamburger-menu" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
         <ul>
           <li class="dropdown-parent">
             <a href="#">Design Ideas</a>
@@ -1990,6 +2089,34 @@
           searchInput.focus();
           searchInput.select();
         }
+      }
+
+      // Hamburger Menu Toggle
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mainNav = document.getElementById('mainNav');
+      
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function() {
+          hamburgerBtn.classList.toggle('active');
+          mainNav.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            hamburgerBtn.classList.remove('active');
+            mainNav.classList.remove('active');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!event.target.closest('.main-header')) {
+            hamburgerBtn.classList.remove('active');
+            mainNav.classList.remove('active');
+          }
+        });
       }
     </script>
 
