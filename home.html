@@ -1502,6 +1502,7 @@
           <li><a href="wardrobe.html">Wardrobes</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+      </nav>
 
       <div class="cta">
         <a href="index.html">Book Free Consultation</a>
@@ -2133,35 +2134,36 @@
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mainNav = document.getElementById('mainNav');
       
-      if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', function() {
+      if (hamburgerBtn && mainNav) {
+        const dropdownParents = mainNav.querySelectorAll('.dropdown-parent');
+        
+        // Toggle menu on hamburger click
+        hamburgerBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
           hamburgerBtn.classList.toggle('active');
           mainNav.classList.toggle('active');
         });
 
         // Handle dropdown toggles on mobile
-        const dropdownParents = mainNav.querySelectorAll('.dropdown-parent');
         dropdownParents.forEach(parent => {
           const link = parent.querySelector('a');
           const dropdown = parent.querySelector('.dropdown');
           
           if (link && dropdown) {
             link.addEventListener('click', function(e) {
-              // Check if this is a parent with dropdown
-              if (dropdown) {
-                e.preventDefault();
-                parent.classList.toggle('active');
-                dropdown.classList.toggle('active');
-              }
+              e.preventDefault();
+              parent.classList.toggle('active');
+              dropdown.classList.toggle('active');
             });
           }
         });
 
-        // Close menu when clicking a non-dropdown link
-        const navLinks = mainNav.querySelectorAll('a:not(.dropdown-parent a)');
-        navLinks.forEach(link => {
-          if (!link.closest('.dropdown-parent') || link.closest('.dropdown')) {
-            link.addEventListener('click', function() {
+        // Close menu when clicking a link
+        const allNavLinks = mainNav.querySelectorAll('a');
+        allNavLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            // Don't close if it's a dropdown parent
+            if (!link.closest('.dropdown-parent') || link.closest('.dropdown')) {
               hamburgerBtn.classList.remove('active');
               mainNav.classList.remove('active');
               dropdownParents.forEach(p => {
@@ -2169,36 +2171,22 @@
                 const dd = p.querySelector('.dropdown');
                 if (dd) dd.classList.remove('active');
               });
-            });
-          }
+            }
+          });
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-          const isClickInsideNav = mainNav.contains(e.target);
-          const isClickOnHamburger = hamburgerBtn.contains(e.target);
-          
-          if (!isClickInsideNav && !isClickOnHamburger && mainNav.classList.contains('active')) {
-            hamburgerBtn.classList.remove('active');
-            mainNav.classList.remove('active');
-            dropdownParents.forEach(p => {
-              p.classList.remove('active');
-              const dd = p.querySelector('.dropdown');
-              if (dd) dd.classList.remove('active');
-            });
-          }
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-          if (!event.target.closest('.main-header')) {
-            hamburgerBtn.classList.remove('active');
-            mainNav.classList.remove('active');
-            dropdownParents.forEach(p => {
-              p.classList.remove('active');
-              const dd = p.querySelector('.dropdown');
-              if (dd) dd.classList.remove('active');
-            });
+          if (!mainNav.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+            if (mainNav.classList.contains('active')) {
+              hamburgerBtn.classList.remove('active');
+              mainNav.classList.remove('active');
+              dropdownParents.forEach(p => {
+                p.classList.remove('active');
+                const dd = p.querySelector('.dropdown');
+                if (dd) dd.classList.remove('active');
+              });
+            }
           }
         });
       }
