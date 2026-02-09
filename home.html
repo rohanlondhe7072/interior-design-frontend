@@ -1008,6 +1008,8 @@
           order: 2;
           margin-left: auto;
           margin-right: 10px;
+          position: relative;
+          z-index: 1001;
         }
 
         .main-nav {
@@ -1015,19 +1017,28 @@
           top: 60px;
           left: 0;
           width: 100%;
-          height: calc(100vh - 60px);
+          max-height: 0;
           background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
           margin: 0;
           padding: 20px 0;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+          overflow-y: hidden;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: translateY(-8px);
+          transition: max-height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease, transform 0.25s ease, overflow-y 0s ease 0.35s;
           z-index: 999;
         }
 
         .main-nav.active {
-          max-height: 100vh;
+          max-height: calc(100vh - 60px);
+          overflow-y: auto;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(0);
+          transition: max-height 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease, transform 0.25s ease, overflow-y 0s ease;
         }
 
         .main-nav ul {
@@ -1057,6 +1068,16 @@
           position: relative;
         }
 
+        .dropdown-parent > a::after {
+          content: ' ▼';
+          font-size: 10px;
+          margin-left: 5px;
+        }
+
+        .dropdown-parent.active > a::after {
+          content: ' ▲';
+        }
+
         .dropdown {
           display: none;
           position: static;
@@ -1066,10 +1087,14 @@
           padding: 10px 0 10px 20px;
           margin-top: 10px;
           border-radius: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
         }
 
         .dropdown.active {
           display: block;
+          max-height: 500px;
         }
 
         .dropdown a {
@@ -1079,16 +1104,30 @@
         }
 
         .cta {
-          margin-left: 0;
-          order: 3;
-          margin-left: 10px;
-          flex-shrink: 0;
+          display: none;
         }
 
         .cta a {
           padding: 10px 14px !important;
           font-size: 12px;
           white-space: nowrap;
+        }
+
+        .mobile-cta {
+          border-top: 1px solid #eee;
+          padding: 15px;
+          margin-top: 10px;
+        }
+
+        .mobile-cta a {
+          display: block;
+          text-align: center;
+          background: linear-gradient(135deg, #ff6b9f 0%, #ff9a6b 100%);
+          color: white;
+          padding: 12px 16px !important;
+          border-radius: 6px;
+          font-size: 13px;
+          font-weight: 600;
         }
 
         .hero {
@@ -1463,7 +1502,6 @@
           <li><a href="wardrobe.html">Wardrobes</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav>
 
       <div class="cta">
         <a href="index.html">Book Free Consultation</a>
@@ -2101,13 +2139,54 @@
           mainNav.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
-        const navLinks = mainNav.querySelectorAll('a');
+        // Handle dropdown toggles on mobile
+        const dropdownParents = mainNav.querySelectorAll('.dropdown-parent');
+        dropdownParents.forEach(parent => {
+          const link = parent.querySelector('a');
+          const dropdown = parent.querySelector('.dropdown');
+          
+          if (link && dropdown) {
+            link.addEventListener('click', function(e) {
+              // Check if this is a parent with dropdown
+              if (dropdown) {
+                e.preventDefault();
+                parent.classList.toggle('active');
+                dropdown.classList.toggle('active');
+              }
+            });
+          }
+        });
+
+        // Close menu when clicking a non-dropdown link
+        const navLinks = mainNav.querySelectorAll('a:not(.dropdown-parent a)');
         navLinks.forEach(link => {
-          link.addEventListener('click', function() {
+          if (!link.closest('.dropdown-parent') || link.closest('.dropdown')) {
+            link.addEventListener('click', function() {
+              hamburgerBtn.classList.remove('active');
+              mainNav.classList.remove('active');
+              dropdownParents.forEach(p => {
+                p.classList.remove('active');
+                const dd = p.querySelector('.dropdown');
+                if (dd) dd.classList.remove('active');
+              });
+            });
+          }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          const isClickInsideNav = mainNav.contains(e.target);
+          const isClickOnHamburger = hamburgerBtn.contains(e.target);
+          
+          if (!isClickInsideNav && !isClickOnHamburger && mainNav.classList.contains('active')) {
             hamburgerBtn.classList.remove('active');
             mainNav.classList.remove('active');
-          });
+            dropdownParents.forEach(p => {
+              p.classList.remove('active');
+              const dd = p.querySelector('.dropdown');
+              if (dd) dd.classList.remove('active');
+            });
+          }
         });
 
         // Close menu when clicking outside
@@ -2115,6 +2194,11 @@
           if (!event.target.closest('.main-header')) {
             hamburgerBtn.classList.remove('active');
             mainNav.classList.remove('active');
+            dropdownParents.forEach(p => {
+              p.classList.remove('active');
+              const dd = p.querySelector('.dropdown');
+              if (dd) dd.classList.remove('active');
+            });
           }
         });
       }
