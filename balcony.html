@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Balcony Design Ideas | InteriorDesign</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',system-ui,sans-serif;
+}
+body{
+  background:#f6f7fb;
+  color:#222;
+  overflow-x:hidden;
+}
+a{text-decoration:none}
+
+/* ================= HEADER ================= */
+header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#fff;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+.navbar{
+  max-width:1350px;
+  margin:auto;
+  padding:18px 35px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:26px;
+  font-weight:900;
+}
+.logo span{color:#c9a24d}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:28px;
+}
+nav ul li{position:relative}
+nav ul a{
+  color:#333;
+  font-size:15px;
+  font-weight:600;
+  padding:8px 0;
+  position:relative;
+}
+nav ul a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:3px;
+  background:#c9a24d;
+  transition:.4s;
+}
+nav ul a:hover::after{width:100%}
+
+/* Dropdown */
+.dropdown{
+  position:absolute;
+  top:140%;
+  left:0;
+  background:#fff;
+  min-width:230px;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 15px 35px rgba(0,0,0,.15);
+  border-radius:8px;
+  overflow:hidden;
+}
+.dropdown a{
+  padding:12px 18px;
+  font-size:14px;
+}
+.dropdown a:hover{
+  background:#f5f5f5;
+  color:#c9a24d;
+}
+.has-dropdown:hover .dropdown{display:flex}
+
+/* CTA */
+.header-cta a{
+  background:#c9a24d;
+  color:#fff;
+  padding:12px 26px;
+  border-radius:30px;
+  font-weight:700;
+  box-shadow:0 10px 25px rgba(201,162,77,.4);
+}
+
+/* ================= HERO ================= */
+.hero{
+  height:72vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1613685302957-3a6fc45346ef?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.hero-content{
+  color:#fff;
+  max-width:850px;
+  animation:fadeUp 1.2s ease;
+}
+.hero h1{
+  font-size:54px;
+  margin-bottom:15px;
+}
+.hero p{
+  font-size:20px;
+  opacity:.95;
+}
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+.hero-buttons a{
+  padding:14px 30px;
+  border-radius:30px;
+  font-weight:700;
+}
+.hero-primary{
+  background:#c9a24d;
+  color:#fff;
+}
+.hero-secondary{
+  border:2px solid #fff;
+  color:#fff;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ================= CONTENT ================= */
+.container{
+  max-width:1350px;
+  margin:auto;
+  padding:80px 35px;
+}
+.section-title{
+  font-size:36px;
+  margin-bottom:10px;
+}
+.section-desc{
+  color:#666;
+  max-width:900px;
+  line-height:1.7;
+  margin-bottom:45px;
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:35px;
+}
+.card{
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(0,0,0,.12);
+  transition:.45s;
+}
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 30px 65px rgba(0,0,0,.18);
+}
+.card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+.card-body{
+  padding:22px;
+}
+.card-body h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+.card-body p{
+  font-size:14px;
+  color:#666;
+}
+
+/* ================= CTA ================= */
+.cta{
+  margin-top:100px;
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1613685302957-3a6fc45346ef?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size:cover;
+  background-position:center;
+  padding:90px 40px;
+  border-radius:30px;
+  color:#fff;
+  text-align:center;
+}
+.cta h2{
+  font-size:38px;
+  margin-bottom:12px;
+}
+.cta p{
+  font-size:18px;
+  max-width:700px;
+  margin:auto;
+  opacity:.95;
+}
+.cta a{
+  display:inline-block;
+  margin-top:30px;
+  background:#c9a24d;
+  color:#fff;
+  padding:16px 38px;
+  border-radius:30px;
+  font-weight:800;
+  box-shadow:0 12px 30px rgba(201,162,77,.45);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#121212;
+  color:#bbb;
+  margin-top:120px;
+}
+.footer-grid{
+  max-width:1350px;
+  margin:auto;
+  padding:70px 35px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+footer h3, footer h4{
+  color:#fff;
+  margin-bottom:12px;
+}
+footer p, footer a{
+  font-size:14px;
+  color:#bbb;
+}
+footer a:hover{color:#c9a24d}
+.footer-bottom{
+  border-top:1px solid #333;
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+  color:#777;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  .hero h1{font-size:36px}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  nav ul{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">Interior<span>Design</span></div>
+
+    <nav>
+      <ul>
+        <li class="has-dropdown">
+          <a href="#">Design Ideas</a>
+          <div class="dropdown">
+            <a href="kitchen.html">Modular Kitchen</a>
+            <a href="living-room.html">Living Room</a>
+            <a href="bedroom.html">Bedroom</a>
+            <a href="wardrobe.html">Wardrobe</a>
+            <a href="bathroom.html">Bathroom</a>
+            <a href="balcony.html">Balcony</a>
+          </div>
+        </li>
+        <li><a href="kitchen.html">Kitchens</a></li>
+        <li><a href="bedroom.html">Bedrooms</a></li>
+        <li><a href="living-room.html">Living Rooms</a></li>
+        <li><a href="balcony.html">Balcony</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <a href="index.html">Book Free Consultation</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Balcony Design Ideas</h1>
+    <p>Create stunning outdoor balcony spaces with our curated designs for every style and budget.</p>
+    <div class="hero-buttons">
+      <a href="#designs" class="hero-primary">View Designs</a>
+      <a href="index.html" class="hero-secondary">Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="designs">
+  <h2 class="section-title">Popular Balcony Designs</h2>
+  <p class="section-desc">
+    Explore a wide range of balcony layouts and styles, from cozy small spaces to spacious outdoor retreats.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1560448205-d82bf18b9bcf?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <div class="card-body">
+        <h3>Modern Balcony Design</h3>
+        <p>Sleek finishes • Comfortable seating</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1616593969747-4797dc75033e?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <div class="card-body">
+        <h3>Green Nook</h3>
+        <p>Potted plants • Vertical planters</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1621045081424-97aa08903f76?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <div class="card-body">
+        <h3>Bistro Setup</h3>
+        <p>Compact dining • Morning coffee</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1613013441633-785518cf90b3?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <div class="card-body">
+        <h3>Evening Ambience</h3>
+        <p>String lights • Warm atmosphere</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=600">
+      <div class="card-body">
+        <h3>Smart Storage</h3>
+        <p>Bench seating • Hidden storage</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1743004862441-a1516bb0945c?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+      <div class="card-body">
+        <h3>Minimal Retreat</h3>
+        <p>Clean lines • Neutral palette</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://st.hzcdn.com/simgs/80f156d40c9ae220_9-9339/home-design.jpg">
+      <div class="card-body">
+        <h3>Outdoor Living</h3>
+        <p>Extended seating • Garden feel</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2015/9/2/3/CI_FB8.jpg.rend.hgtvcom.791.594.85.suffix/1441217055333.webp">
+      <div class="card-body">
+        <h3>Urban Balcony</h3>
+        <p>City style • Compact layout</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2015/9/2/3/CI_PB290156.jpg.rend.hgtvcom.791.594.85.suffix/1441217349239.webp">
+      <div class="card-body">
+        <h3>Luxury Terrace</h3>
+        <p>Premium finishes • Spacious</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2015/9/2/3/CI_Hazelton_Terrace02.jpg.rend.hgtvcom.791.527.85.suffix/1441217431256.webp">
+      <div class="card-body">
+        <h3>Wood Finish Balcony</h3>
+        <p>Natural materials • Warm feel</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://www.decorpot.com/images/109227443710-stunning-and-beautiful-balcony-decoration-ideas-2023.jpg">
+      <div class="card-body">
+        <h3>Small Balcony Ideas</h3>
+        <p>Space-saving • Smart design</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://www.decorpot.com/images/blogimage1932203039decorative-elements-for-the-balcony.jpg">
+      <div class="card-body">
+        <h3>Contemporary Balcony</h3>
+        <p>Modern style • Innovative ideas</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Design Your Dream Balcony</h2>
+    <p>Talk to expert designers, get personalized layouts & transparent pricing.</p>
+    <a href="index.html">Get Free Consultation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>InteriorDesign</h3>
+      <p>Premium balcony & home interior solutions trusted by thousands of Indian homeowners.</p>
+    </div>
+
+    <div>
+      <h4>Design Ideas</h4>
+      <p><a href="kitchen.html">Modular Kitchen</a></p>
+      <p><a href="living-room.html">Living Room</a></p>
+      <p><a href="bedroom.html">Bedroom</a></p>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <p><a href="#">Contact Us</a></p>
+      <p><a href="#">Privacy Policy</a></p>
+      <p><a href="#">Terms & Conditions</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 InteriorDesign. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </script>
+  </body>
+  </html>
+    <h2>Design Your Dream Balcony</h2>
+    <p>Get personalised balcony layouts, plant plans and lighting recommendations from our experts.</p>
+    <div class="cta-buttons">
+      <a href="index.html" class="cta-primary">Book Free Consultation</a>
+      <a href="#" class="cta-secondary">View More Designs</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>InteriorDesign</h3>
+      <p>Practical and beautiful balcony designs for every home.</p>
+    </div>
+    <div>
+      <h4>Design Ideas</h4>
+      <p><a href="kitchen.html">Modular Kitchen</a></p>
+      <p><a href="bedroom.html">Bedroom</a></p>
+      <p><a href="living-room.html">Living Room</a></p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: hello@example.com<br>Phone: +91 90000 00000</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 InteriorDesign. All Rights Reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+<script src="frontend-api.js"></script>
+</body>
+</html>

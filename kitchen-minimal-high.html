@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Minimal Kitchen – High Budget | InteriorDesign</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins','Segoe UI',system-ui}
+body{background:linear-gradient(180deg,#f5f5f5,#e8e8e8);color:#2c2c2c;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ANIMATIONS */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:10;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  animation: slideInDown 0.6s ease-out;
+}
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 24px;
+}
+.logo{
+  font-size:22px;
+  font-weight:800;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation: slideInLeft 0.6s ease-out;
+}
+.logo span{color:#6b6b6b}
+
+/* NAVIGATION */
+nav{display:flex;align-items:center;gap:0}
+nav ul{list-style:none;display:flex;gap:20px}
+nav a{
+  font-weight:600;
+  transition:all .3s ease;
+  position:relative;
+}
+nav a::after{
+  content:'';
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,#667eea,#764ba2);
+  transition:width .3s ease;
+}
+nav a:hover{color:#667eea}
+nav a:hover::after{width:100%}
+
+.header-cta a{
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:26px;
+  font-weight:700;
+  transition:all .3s;
+  box-shadow:0 8px 20px rgba(102,126,234,.3);
+  animation: slideInRight 0.6s ease-out;
+}
+.header-cta a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(102,126,234,.5);
+}
+
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:6px;background:none;border:none;padding:0}
+.hamburger span{width:25px;height:3px;background:#2c2c2c;border-radius:3px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+
+/* HERO WITH BACKGROUND IMAGE */
+.hero{
+  height:62vh;
+  background-image:linear-gradient(135deg,rgba(102,126,234,.5),rgba(118,75,162,.5)),
+  url('https://images.unsplash.com/photo-1556910103-2bcc0ffcd9a0?q=80&w=1400&h=700');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right, rgba(255,255,255,.05), transparent);
+  pointer-events:none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:48px 24px;
+  width:100%;
+  position:relative;
+  z-index:2;
+}
+.hero h1{
+  font-size:48px;
+  font-weight:800;
+  color:#fff;
+  margin-bottom:10px;
+  text-shadow:0 4px 12px rgba(0,0,0,.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+.hero p{
+  font-size:18px;
+  color:#fff;
+  max-width:620px;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* COMMON */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 24px;
+}
+.section-title{
+  font-size:36px;
+  font-weight:800;
+  margin-bottom:12px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation: fadeInUp 0.8s ease-out;
+}
+.section-desc{
+  color:#5a5a5a;
+  max-width:900px;
+  margin-bottom:40px;
+  line-height:1.8;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+/* LAYOUT */
+.color-wrap{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
+}
+
+/* DESIGN SELECTOR */
+.design-selector{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.design-thumb{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  transition:all .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 0.6s ease-out both;
+  position:relative;
+}
+
+.design-thumb:nth-child(1){animation-delay:0.1s}
+.design-thumb:nth-child(2){animation-delay:0.2s}
+.design-thumb:nth-child(3){animation-delay:0.3s}
+.design-thumb:nth-child(4){animation-delay:0.4s}
+.design-thumb:nth-child(5){animation-delay:0.5s}
+.design-thumb:nth-child(6){animation-delay:0.6s}
+
+.design-thumb:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 50px rgba(102,126,234,.25);
+}
+
+.design-thumb.active{
+  outline:3px solid #667eea;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.design-thumb img{
+  width:100%;
+  height:130px;
+  object-fit:cover;
+  transition:transform .4s ease;
+}
+
+.design-thumb:hover img{
+  transform:scale(1.1);
+}
+
+.design-thumb .info{padding:10px}
+.design-thumb h4{
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:4px;
+  color:#2c2c2c;
+}
+.design-thumb p{
+  font-size:12px;
+  color:#5a5a5a;
+  line-height:1.4;
+}
+.badge{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
+  padding:4px 8px;
+  border-radius:6px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* PREVIEW */
+.kitchen-preview{
+  position:relative;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 30px 70px rgba(102,126,234,.15);
+  animation: slideInRight 0.8s ease-out;
+}
+.kitchen-preview img{
+  width:100%;
+  height:440px;
+  object-fit:cover;
+  filter:contrast(1.05) saturate(0.95);
+  transition:transform .4s ease;
+}
+
+.kitchen-preview:hover img{
+  transform:scale(1.02);
+}
+
+.kitchen-preview::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center,
+    rgba(255,255,255,.1),
+    var(--kitchen-color,transparent)
+  );
+  opacity:.65;
+  transition:.5s;
+  pointer-events:none;
+}
+
+/* PALETTE */
+.palette{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:26px;
+}
+.color-chip{
+  height:70px;
+  border-radius:18px;
+  cursor:pointer;
+  box-shadow:0 14px 34px rgba(0,0,0,.1);
+  position:relative;
+  transition:all .3s ease;
+}
+.color-chip:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+.color-chip span{
+  position:absolute;
+  bottom:8px;
+  left:10px;
+  font-size:12px;
+  font-weight:700;
+  color:#fff;
+}
+
+.preview-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#f8f8f8,#e8e8e8);
+  z-index:3;
+}
+
+.preview-placeholder h3{
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:8px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.preview-placeholder p{
+  font-size:15px;
+  color:#5a5a5a;
+  max-width:260px;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.preview-info{
+  position:absolute;
+  top:20px;
+  left:20px;
+  right:20px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  padding:22px;
+  border-radius:20px;
+  z-index:4;
+  transition:all .35s ease;
+  border:1px solid rgba(102,126,234,.1);
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.preview-info:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(102,126,234,.2);
+}
+
+.preview-info h3{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:8px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.preview-info p{
+  font-size:14px;
+  color:#5a5a5a;
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+.preview-info ul{
+  list-style:none;
+  margin-bottom:16px;
+}
+
+.preview-info li{
+  font-size:14px;
+  margin-bottom:6px;
+  color:#2c2c2c;
+  padding-left:20px;
+  animation: slideInRight 0.5s ease-out;
+}
+
+.preview-info li:nth-child(1){animation-delay:0.1s}
+.preview-info li:nth-child(2){animation-delay:0.2s}
+.preview-info li:nth-child(3){animation-delay:0.3s}
+.preview-info li:nth-child(4){animation-delay:0.4s}
+
+/* BEAUTIFUL BUTTONS */
+.preview-btn, .consultation-btn{
+  display:inline-block;
+  padding:14px 32px;
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff;
+  border-radius:50px;
+  font-weight:700;
+  transition:all .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow:0 10px 28px rgba(102,126,234,.35);
+  cursor:pointer;
+  border:none;
+  position:relative;
+  overflow:hidden;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.preview-btn::before, .consultation-btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,#764ba2 0%,#667eea 100%);
+  transition:left .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index:-1;
+}
+
+.preview-btn:hover, .consultation-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 45px rgba(102,126,234,.5);
+}
+
+.preview-btn:hover::before, .consultation-btn:hover::before{
+  left:0;
+}
+
+.preview-btn:active, .consultation-btn:active{
+  transform:translateY(-2px);
+}
+
+.preview-info.hide{
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.35s ease;
+}
+
+/* FOOTER */
+.site-footer{
+  background:linear-gradient(135deg,#2c2c2c 0%,#1a1a1a 100%);
+  color:#ccc;
+  padding:80px 24px 30px;
+  margin-top:80px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:60px;
+  margin-bottom:60px;
+}
+
+.footer-section{
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.footer-section:nth-child(1){animation-delay:0.1s}
+.footer-section:nth-child(2){animation-delay:0.2s}
+.footer-section:nth-child(3){animation-delay:0.3s}
+
+.footer-section h4{
+  font-size:18px;
+  font-weight:800;
+  color:#fff;
+  margin-bottom:20px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  transition:all .3s ease;
+}
+
+.footer-section:hover h4{
+  transform:translateX(5px);
+}
+
+.footer-section p{
+  font-size:14px;
+  line-height:1.8;
+  color:#aaa;
+  margin-bottom:12px;
+}
+
+.footer-section ul{
+  list-style:none;
+}
+
+.footer-section li{
+  margin-bottom:12px;
+}
+
+.footer-section a{
+  color:#aaa;
+  font-size:14px;
+  transition:all .3s ease;
+  display:inline-block;
+  position:relative;
+}
+
+.footer-section a::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;
+  left:0;
+  width:0;
+  height:1px;
+  background:#667eea;
+  transition:width .3s ease;
+}
+
+.footer-section a:hover{
+  color:#667eea;
+  transform:translateX(4px);
+}
+
+.footer-section a:hover::after{
+  width:100%;
+}
+
+.footer-contact p{
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:10px;
+}
+
+.footer-contact a{
+  color:#667eea;
+  font-weight:600;
+  text-decoration:underline;
+}
+
+.footer-divider{
+  border-top:1px solid rgba(102,126,234,.2);
+  padding-top:30px;
+  text-align:center;
+  font-size:13px;
+  color:#777;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.social-links{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+}
+
+.social-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  background:rgba(102,126,234,.1);
+  border-radius:50%;
+  color:#667eea;
+  transition:all .3s ease;
+  font-size:18px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.social-links a:nth-child(1){animation-delay:0.1s}
+.social-links a:nth-child(2){animation-delay:0.2s}
+.social-links a:nth-child(3){animation-delay:0.3s}
+.social-links a:nth-child(4){animation-delay:0.4s}
+
+.social-links a:hover{
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
+  transform:translateY(-3px) scale(1.1);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  
+  .navbar{padding:18px}
+  
+  nav{
+    position:absolute;
+    top:70px;
+    right:0;
+    left:0;
+    background:#fff;
+    flex-direction:column;
+    max-height:0;
+    overflow:hidden;
+    transition:.3s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+  
+  nav.active{
+    max-height:400px;
+  }
+  
+  nav ul{
+    flex-direction:column;
+    gap:0;
+    padding:20px 24px;
+    width:100%;
+  }
+  
+  nav ul li{
+    padding:14px 0;
+    border-bottom:1px solid #e8e8e8;
+  }
+  
+  nav ul li:last-child{
+    border-bottom:none;
+  }
+  
+  nav ul li a{
+    font-size:16px;
+  }
+  
+  .header-cta{
+    position:absolute;
+    bottom:-60px;
+    left:0;
+    right:0;
+    padding:15px 24px;
+    border-top:1px solid #e8e8e8;
+    width:100%;
+  }
+  
+  nav.active ~ .header-cta{
+    bottom:-70px;
+  }
+  
+  .header-cta a{
+    width:100%;
+    text-align:center;
+    display:block;
+  }
+  
+  .hero{height:50vh}
+  .hero h1{font-size:32px}
+  .hero p{font-size:16px}
+  
+  .color-wrap{grid-template-columns:1fr;gap:30px}
+  .kitchen-preview img{height:320px}
+  
+  .design-selector{grid-template-columns:repeat(2,1fr)}
+  
+  .section-title{font-size:28px}
+  
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+
+@media(max-width:480px){
+  .navbar{padding:14px 16px}
+  .logo{font-size:18px}
+  
+  .hero h1{font-size:24px}
+  .hero p{font-size:14px}
+  
+  .container{padding:60px 16px}
+  .section-title{font-size:24px}
+  .section-desc{font-size:14px}
+  
+  .design-selector{grid-template-columns:1fr}
+  .kitchen-preview img{height:280px}
+  
+  .preview-info{
+    top:10px;
+    left:10px;
+    right:10px;
+    padding:16px;
+  }
+  
+  .preview-info h3{font-size:18px}
+  .preview-info p{font-size:13px}
+  .preview-info li{font-size:12px}
+  
+  .preview-btn, .consultation-btn{
+    padding:12px 24px;
+    font-size:14px;
+  }
+  
+  .site-footer{
+    padding:50px 16px 20px;
+  }
+  
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  
+  .footer-section h4{
+    font-size:16px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">Interior<span>Design</span></div>
+    <nav id="nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="kitchen.html">Kitchens</a></li>
+        <li><a href="living-room.html">Living Rooms</a></li>
+        <li><a href="bedroom.html">Bedrooms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-cta"><a href="#consultation">Free Consultation</a></div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <h1>Minimal Kitchen Design — Premium Luxury</h1>
+    <p>Bespoke luxury minimal kitchens with exclusive materials and architectural excellence.</p>
+  </div>
+</section>
+
+<section class="container" id="kitchen">
+  <h2 class="section-title">Select Kitchen Type & Color</h2>
+  <p class="section-desc">
+    Luxury minimal kitchens represent the pinnacle of minimalist design with premium Italian hardware, high-end appliances, and exquisite finishes. A statement of sophisticated elegance.
+  </p>
+
+  <div class="color-wrap">
+    <!-- LEFT -->
+    <div class="design-selector">
+      <script>
+        const kitchens=[
+          {img:"3214064",name:"Luxury White Minimal",price:"₹4.5–6 Lakh",desc:"Italian hardware with premium finishes"},
+          {img:"1080721",name:"Matte Black Minimal",price:"₹5–7 Lakh",desc:"Sophisticated black with gold accents"},
+          {img:"5824901",name:"Premium Oak Minimal",price:"₹5.5–7.5 Lakh",desc:"Scandinavian oak with modern design"},
+          {img:"6782474",name:"Dual Luxury Minimal",price:"₹5.5–7 Lakh",desc:"White & premium wood combination"},
+          {img:"6312356",name:"Luxury Island Kitchen",price:"₹6–8 Lakh",desc:"Minimal with luxury island design"},
+          {img:"6207744",name:"Handle-less Premium",price:"₹5–6.5 Lakh",desc:"Touch-to-open with premium tech"},
+          {img:"7027852",name:"Marble Minimal Kitchen",price:"₹6.5–8.5 Lakh",desc:"Marble top with minimal cabinetry"},
+          {img:"5824896",name:"Ebony Luxury Minimal",price:"₹5.5–7 Lakh",desc:"Premium dark wood with luxury appeal"},
+          {img:"5824894",name:"Smart Luxury Minimal",price:"₹6–8 Lakh",desc:"High-tech smart minimal kitchen"},
+          {img:"5824892",name:"Bespoke Minimal",price:"₹6–8.5 Lakh",desc:"Customized luxury minimal design"}
+        ];
+
+        document.write(
+          kitchens.concat(kitchens).slice(0,20).map((k,i)=>`
+          <div class="design-thumb"
+            data-img="https://images.pexels.com/photos/${k.img}/pexels-photo-${k.img}.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img src="https://images.pexels.com/photos/${k.img}/pexels-photo-${k.img}.jpeg?auto=compress&cs=tinysrgb&w=600">
+            <div class="info">
+              <span class="badge">${k.price}</span>
+              <h4>${k.name}</h4>
+              <p>${k.desc}</p>
+            </div>
+          </div>
+        `).join('')
+        );
+      </script>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="kitchen-preview" id="kitchenBox">
+      <div class="preview-info">
+        <h3>Premium Minimal Kitchen</h3>
+        <p>
+          Luxury minimal kitchens crafted with architectural precision and finest materials. Experience the epitome of minimalist sophistication.
+        </p>
+
+        <ul>
+          <li>✔ Budget range: ₹4.5 – ₹8.5 Lakh</li>
+          <li>✔ Premium Italian & European hardware</li>
+          <li>✔ High-end appliances & smart tech</li>
+          <li>✔ Architectural excellence & bespoke design</li>
+        </ul>
+
+        <button class="preview-btn">Get Free Design</button>
+      </div>
+
+      <div class="preview-placeholder" id="previewText">
+        <h3>Select Your Kitchen Design</h3>
+        <p>Choose a layout from the left to see image or video preview</p>
+      </div>
+
+      <img id="previewImg"
+        style="display:none"
+        src="https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg"
+        alt="Kitchen Preview">
+
+      <video id="previewVideo"
+        muted loop playsinline
+        style="display:none;width:100%;height:440px;object-fit:cover;">
+        <source src="kitchen1video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- FOOTER SECTION 1 -->
+      <div class="footer-section">
+        <h4>About InteriorDesign</h4>
+        <p>
+          We provide premium interior design solutions and consultations for modern homes. Transform your space with our expert designers and curated collections.
+        </p>
+        <div class="social-links">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+
+      <!-- FOOTER SECTION 2 -->
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="kitchen.html">Kitchen Designs</a></li>
+          <li><a href="bedroom.html">Bedroom Designs</a></li>
+          <li><a href="living-room.html">Living Room</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- FOOTER SECTION 3 -->
+      <div class="footer-section footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📍 Address: 123 Design Street, Mumbai, India 400001</p>
+        <p>📞 Phone: <a href="tel:+919000000000">+91 9000 00000</a></p>
+        <p>📧 Email: <a href="mailto:support@interiordesign.com">support@interiordesign.com</a></p>
+        <p>🕒 Hours: Mon - Sat, 10:00 AM - 6:00 PM</p>
+      </div>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-divider">
+      <p>© 2026 InteriorDesign. All rights reserved. | Designed with ❤️ for beautiful homes</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+// KITCHEN PREVIEW
+const previewImg = document.getElementById('previewImg');
+const previewVideo = document.getElementById('previewVideo');
+const previewText = document.getElementById('previewText');
+const kitchenBox = document.getElementById('kitchenBox');
+const previewInfo = document.querySelector('.preview-info');
+
+function bindKitchenClicks(){
+  document.querySelectorAll('.design-thumb').forEach((t,index)=>{
+    t.onclick = () => {
+      // hide info box
+      previewInfo.classList.add('hide');
+
+      // active border
+      document.querySelectorAll('.design-thumb')
+        .forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+
+      previewText.style.display = 'none';
+      kitchenBox.style.setProperty('--kitchen-color','transparent');
+
+      if(index === 0){
+        previewImg.style.display = 'none';
+        previewVideo.style.display = 'block';
+        previewVideo.currentTime = 0;
+        previewVideo.play();
+      } else {
+        previewVideo.pause();
+        previewVideo.style.display = 'none';
+        previewImg.style.display = 'block';
+        previewImg.src = t.dataset.img;
+      }
+    };
+  });
+}
+
+// IMPORTANT: wait till DOM + document.write complete
+window.addEventListener('load', bindKitchenClicks);
+</script>
+
+</body>
+</html>

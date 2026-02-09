@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Minimal Kitchen – Medium Budget | InteriorDesign</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins','Segoe UI',system-ui}
+body{background:linear-gradient(180deg,#f5f5f5,#e8e8e8);color:#2c2c2c;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+header{position:sticky;top:0;background:#fff;z-index:10;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:18px 24px}
+.logo{font-size:22px;font-weight:800;color:#3a3a3a}
+.logo span{color:#6b6b6b}
+
+/* NAVIGATION */
+nav{display:flex;align-items:center;gap:0}
+nav ul{list-style:none;display:flex;gap:20px}
+nav a{font-weight:600;transition:.3s}
+nav a:hover{color:#667eea}
+.header-cta a{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:10px 18px;border-radius:26px;font-weight:700;transition:.3s;box-shadow:0 8px 20px rgba(102,126,234,.3)}
+.header-cta a:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(102,126,234,.5)}
+
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:6px;background:none;border:none;padding:0}
+.hamburger span{width:25px;height:3px;background:#2c2c2c;border-radius:3px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+
+/* HERO WITH BACKGROUND IMAGE */
+.hero{
+  height:62vh;
+  background-image:linear-gradient(135deg,rgba(102,126,234,.5),rgba(118,75,162,.5)),
+  url('https://images.unsplash.com/photo-1556910103-2bcc0ffcd9a0?q=80&w=1400&h=700');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right, rgba(255,255,255,.05), transparent);
+  pointer-events:none;
+}
+
+.hero-inner{max-width:1200px;margin:auto;padding:48px 24px;width:100%;position:relative;z-index:2}
+.hero h1{font-size:48px;font-weight:800;color:#fff;margin-bottom:10px;text-shadow:0 4px 12px rgba(0,0,0,.3)}
+.hero p{font-size:18px;color:#fff;max-width:620px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+
+/* COMMON */
+.container{max-width:1200px;margin:auto;padding:80px 24px}
+.section-title{
+  font-size:36px;font-weight:800;margin-bottom:12px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section-desc{color:#5a5a5a;max-width:900px;margin-bottom:40px;line-height:1.8}
+
+/* LAYOUT */
+.color-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
+
+/* DESIGN SELECTOR */
+.design-selector{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.design-thumb{
+  background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);transition:.3s
+}
+.design-thumb:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(102,126,234,.15)}
+.design-thumb.active{outline:3px solid #667eea}
+.design-thumb img{width:100%;height:130px;object-fit:cover}
+.design-thumb .info{padding:10px}
+.design-thumb h4{font-size:14px;font-weight:800;margin-bottom:4px;color:#2c2c2c}
+.design-thumb p{font-size:12px;color:#5a5a5a;line-height:1.4}
+.badge{display:inline-block;font-size:11px;font-weight:700;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:4px 8px;border-radius:6px}
+
+/* PREVIEW */
+.kitchen-preview{
+  position:relative;border-radius:26px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(102,126,234,.15)
+}
+.kitchen-preview img{
+  width:100%;height:440px;object-fit:cover;
+  filter:contrast(1.05) saturate(0.95)
+}
+.kitchen-preview::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at center,
+    rgba(255,255,255,.1),
+    var(--kitchen-color,transparent)
+  );
+  opacity:.65;transition:.5s;pointer-events:none
+}
+
+/* PALETTE */
+.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.color-chip{
+  height:70px;border-radius:18px;cursor:pointer;
+  box-shadow:0 14px 34px rgba(0,0,0,.1);
+  position:relative
+}
+.color-chip span{
+  position:absolute;bottom:8px;left:10px;
+  font-size:12px;font-weight:700;color:#fff
+}
+
+.preview-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#f8f8f8,#e8e8e8);
+  z-index:3;
+}
+
+.preview-placeholder h3{
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:8px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.preview-placeholder p{
+  font-size:15px;
+  color:#5a5a5a;
+  max-width:260px;
+}
+
+.preview-info{
+  position:absolute;
+  top:20px;
+  left:20px;
+  right:20px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  padding:22px;
+  border-radius:20px;
+  z-index:4;
+  transition:.35s ease;
+  border:1px solid rgba(102,126,234,.1);
+}
+
+.preview-info h3{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:8px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.preview-info p{
+  font-size:14px;
+  color:#5a5a5a;
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+.preview-info ul{
+  list-style:none;
+  margin-bottom:16px;
+}
+
+.preview-info li{
+  font-size:14px;
+  margin-bottom:6px;
+  color:#2c2c2c;
+}
+
+/* BEAUTIFUL BUTTONS */
+.preview-btn, .consultation-btn{
+  display:inline-block;
+  padding:14px 32px;
+  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff;
+  border-radius:50px;
+  font-weight:700;
+  transition:all .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow:0 10px 28px rgba(102,126,234,.35);
+  cursor:pointer;
+  border:none;
+  position:relative;
+  overflow:hidden;
+}
+
+.preview-btn::before, .consultation-btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,#764ba2 0%,#667eea 100%);
+  transition:left .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index:-1;
+}
+
+.preview-btn:hover, .consultation-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 45px rgba(102,126,234,.5);
+}
+
+.preview-btn:hover::before, .consultation-btn:hover::before{
+  left:0;
+}
+
+.preview-btn:active, .consultation-btn:active{
+  transform:translateY(-2px);
+}
+
+.preview-info.hide{
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.35s ease;
+}
+
+/* FOOTER */
+.site-footer{
+  background:linear-gradient(135deg,#2c2c2c 0%,#1a1a1a 100%);
+  color:#ccc;
+  padding:80px 24px 30px;
+  margin-top:80px;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:60px;
+  margin-bottom:60px;
+}
+
+.footer-section h4{
+  font-size:18px;
+  font-weight:800;
+  color:#fff;
+  margin-bottom:20px;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.footer-section p{
+  font-size:14px;
+  line-height:1.8;
+  color:#aaa;
+  margin-bottom:12px;
+}
+
+.footer-section ul{
+  list-style:none;
+}
+
+.footer-section li{
+  margin-bottom:12px;
+}
+
+.footer-section a{
+  color:#aaa;
+  font-size:14px;
+  transition:all .3s ease;
+  display:inline-block;
+}
+
+.footer-section a:hover{
+  color:#667eea;
+  transform:translateX(4px);
+}
+
+.footer-contact p{
+  font-size:14px;
+  color:#aaa;
+  margin-bottom:10px;
+}
+
+.footer-contact a{
+  color:#667eea;
+  font-weight:600;
+  text-decoration:underline;
+}
+
+.footer-divider{
+  border-top:1px solid rgba(102,126,234,.2);
+  padding-top:30px;
+  text-align:center;
+  font-size:13px;
+  color:#777;
+}
+
+.social-links{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+}
+
+.social-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  background:rgba(102,126,234,.1);
+  border-radius:50%;
+  color:#667eea;
+  transition:all .3s ease;
+  font-size:18px;
+}
+
+.social-links a:hover{
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  
+  .navbar{padding:18px}
+  
+  nav{
+    position:absolute;
+    top:70px;
+    right:0;
+    left:0;
+    background:#fff;
+    flex-direction:column;
+    max-height:0;
+    overflow:hidden;
+    transition:.3s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+  
+  nav.active{
+    max-height:400px;
+  }
+  
+  nav ul{
+    flex-direction:column;
+    gap:0;
+    padding:20px 24px;
+    width:100%;
+  }
+  
+  nav ul li{
+    padding:14px 0;
+    border-bottom:1px solid #e8e8e8;
+  }
+  
+  nav ul li:last-child{
+    border-bottom:none;
+  }
+  
+  nav ul li a{
+    font-size:16px;
+  }
+  
+  .header-cta{
+    position:absolute;
+    bottom:-60px;
+    left:0;
+    right:0;
+    padding:15px 24px;
+    border-top:1px solid #e8e8e8;
+    width:100%;
+  }
+  
+  nav.active ~ .header-cta{
+    bottom:-70px;
+  }
+  
+  .header-cta a{
+    width:100%;
+    text-align:center;
+    display:block;
+  }
+  
+  .hero{height:50vh}
+  .hero h1{font-size:32px}
+  .hero p{font-size:16px}
+  
+  .color-wrap{grid-template-columns:1fr;gap:30px}
+  .kitchen-preview img{height:320px}
+  
+  .design-selector{grid-template-columns:repeat(2,1fr)}
+  
+  .section-title{font-size:28px}
+  
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+
+@media(max-width:480px){
+  .navbar{padding:14px 16px}
+  .logo{font-size:18px}
+  
+  .hero h1{font-size:24px}
+  .hero p{font-size:14px}
+  
+  .container{padding:60px 16px}
+  .section-title{font-size:24px}
+  .section-desc{font-size:14px}
+  
+  .design-selector{grid-template-columns:1fr}
+  .kitchen-preview img{height:280px}
+  
+  .preview-info{
+    top:10px;
+    left:10px;
+    right:10px;
+    padding:16px;
+  }
+  
+  .preview-info h3{font-size:18px}
+  .preview-info p{font-size:13px}
+  .preview-info li{font-size:12px}
+  
+  .preview-btn, .consultation-btn{
+    padding:12px 24px;
+    font-size:14px;
+  }
+  
+  .site-footer{
+    padding:50px 16px 20px;
+  }
+  
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  
+  .footer-section h4{
+    font-size:16px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">Interior<span>Design</span></div>
+    <nav id="nav">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="kitchen.html">Kitchens</a></li>
+        <li><a href="living-room.html">Living Rooms</a></li>
+        <li><a href="bedroom.html">Bedrooms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-cta"><a href="#consultation">Free Consultation</a></div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <h1>Minimal Kitchen Design — Medium Budget</h1>
+    <p>Premium minimalist kitchens with superior materials and sophisticated design.</p>
+  </div>
+</section>
+
+<section class="container" id="kitchen">
+  <h2 class="section-title">Select Kitchen Type & Color</h2>
+  <p class="section-desc">
+    Medium budget minimal kitchens offer quality materials, advanced storage solutions, and elegant finishes. Perfect for homeowners who value both aesthetics and functionality.
+  </p>
+
+  <div class="color-wrap">
+    <!-- LEFT -->
+    <div class="design-selector">
+      <script>
+        const kitchens=[
+          {img:"3214064",name:"Premium White Minimal",price:"₹2.5–3.2 Lakh",desc:"High-quality white with premium hardware"},
+          {img:"1080721",name:"Matte Grey Minimal",price:"₹2.8–3.5 Lakh",desc:"Sophisticated grey with integrated handles"},
+          {img:"5824901",name:"Light Walnut Minimal",price:"₹3–3.8 Lakh",desc:"Premium wood with modern lines"},
+          {img:"6782474",name:"Dual Tone Minimal",price:"₹3.2–4 Lakh",desc:"White & wood combination minimal"},
+          {img:"6312356",name:"Island Minimal Kitchen",price:"₹3.5–4.5 Lakh",desc:"Minimal design with island seating"},
+          {img:"6207744",name:"Handle-less Minimal",price:"₹3–4 Lakh",desc:"Touch-to-open modern design"},
+          {img:"7027852",name:"Concrete Finish Minimal",price:"₹2.8–3.6 Lakh",desc:"Industrial minimal aesthetic"},
+          {img:"5824896",name:"Dark Walnut Minimal",price:"₹3.2–4.2 Lakh",desc:"Luxurious dark wood minimal"},
+          {img:"5824894",name:"Smart Tech Minimal",price:"₹3.5–4.5 Lakh",desc:"Minimal with smart storage tech"},
+          {img:"5824892",name:"Elegant Minimal",price:"₹3–3.8 Lakh",desc:"Sophisticated minimal for modern homes"}
+        ];
+
+        document.write(
+          kitchens.concat(kitchens).slice(0,20).map((k,i)=>`
+          <div class="design-thumb"
+            data-img="https://images.pexels.com/photos/${k.img}/pexels-photo-${k.img}.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img src="https://images.pexels.com/photos/${k.img}/pexels-photo-${k.img}.jpeg?auto=compress&cs=tinysrgb&w=600">
+            <div class="info">
+              <span class="badge">${k.price}</span>
+              <h4>${k.name}</h4>
+              <p>${k.desc}</p>
+            </div>
+          </div>
+        `).join('')
+        );
+      </script>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="kitchen-preview" id="kitchenBox">
+      <div class="preview-info">
+        <h3>Minimal Kitchen — Medium Budget</h3>
+        <p>
+          Premium minimal kitchens with superior quality materials and thoughtful design. Combine elegance with practicality.
+        </p>
+
+        <ul>
+          <li>✔ Budget range: ₹2.5 – ₹4.5 Lakh</li>
+          <li>✔ Premium materials & finishes</li>
+          <li>✔ Advanced storage solutions</li>
+          <li>✔ Sophisticated minimal aesthetics</li>
+        </ul>
+
+        <button class="preview-btn">Get Free Design</button>
+      </div>
+
+      <div class="preview-placeholder" id="previewText">
+        <h3>Select Your Kitchen Design</h3>
+        <p>Choose a layout from the left to see image or video preview</p>
+      </div>
+
+      <img id="previewImg"
+        style="display:none"
+        src="https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg"
+        alt="Kitchen Preview">
+
+      <video id="previewVideo"
+        muted loop playsinline
+        style="display:none;width:100%;height:440px;object-fit:cover;">
+        <source src="kitchen1video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- FOOTER SECTION 1 -->
+      <div class="footer-section">
+        <h4>About InteriorDesign</h4>
+        <p>
+          We provide premium interior design solutions and consultations for modern homes. Transform your space with our expert designers and curated collections.
+        </p>
+        <div class="social-links">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+
+      <!-- FOOTER SECTION 2 -->
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="kitchen.html">Kitchen Designs</a></li>
+          <li><a href="bedroom.html">Bedroom Designs</a></li>
+          <li><a href="living-room.html">Living Room</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- FOOTER SECTION 3 -->
+      <div class="footer-section footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📍 Address: 123 Design Street, Mumbai, India 400001</p>
+        <p>📞 Phone: <a href="tel:+919000000000">+91 9000 00000</a></p>
+        <p>📧 Email: <a href="mailto:support@interiordesign.com">support@interiordesign.com</a></p>
+        <p>🕒 Hours: Mon - Sat, 10:00 AM - 6:00 PM</p>
+      </div>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-divider">
+      <p>© 2026 InteriorDesign. All rights reserved. | Designed with ❤️ for beautiful homes</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+// KITCHEN PREVIEW
+const previewImg = document.getElementById('previewImg');
+const previewVideo = document.getElementById('previewVideo');
+const previewText = document.getElementById('previewText');
+const kitchenBox = document.getElementById('kitchenBox');
+const previewInfo = document.querySelector('.preview-info');
+
+function bindKitchenClicks(){
+  document.querySelectorAll('.design-thumb').forEach((t,index)=>{
+    t.onclick = () => {
+      // hide info box
+      previewInfo.classList.add('hide');
+
+      // active border
+      document.querySelectorAll('.design-thumb')
+        .forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+
+      previewText.style.display = 'none';
+      kitchenBox.style.setProperty('--kitchen-color','transparent');
+
+      if(index === 0){
+        previewImg.style.display = 'none';
+        previewVideo.style.display = 'block';
+        previewVideo.currentTime = 0;
+        previewVideo.play();
+      } else {
+        previewVideo.pause();
+        previewVideo.style.display = 'none';
+        previewImg.style.display = 'block';
+        previewImg.src = t.dataset.img;
+      }
+    };
+  });
+}
+
+// IMPORTANT: wait till DOM + document.write complete
+window.addEventListener('load', bindKitchenClicks);
+</script>
+
+</body>
+</html>
