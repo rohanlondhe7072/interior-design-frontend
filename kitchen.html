@@ -1,311 +1,1047 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Modular Kitchen Designs | InteriorDesign</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore premium modular kitchen designs with transparent pricing. Professional interior design solutions for modern Indian homes.">
+  <title>Modular Kitchen Designs | Premium Interior Solutions</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* =============== CSS VARIABLES =============== */
+    :root {
+      --color-primary: #c9a24d;
+      --color-dark: #1a1a1a;
+      --color-light: #f6f7fb;
+      --color-white: #ffffff;
+      --color-text: #333333;
+      --color-text-light: #666666;
+      --color-border: #e5e5e5;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+      --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-<style>
-/* ================= RESET ================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',system-ui,sans-serif;
-}
-body{
-  background:#f6f7fb;
-  color:#222;
-  overflow-x:hidden;
-}
-a{text-decoration:none}
+    /* =============== RESET & BASE =============== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ================= HEADER ================= */
-header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#fff;
-  box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-.navbar{
-  max-width:1350px;
-  margin:auto;
-  padding:18px 35px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.logo{
-  font-size:26px;
-  font-weight:900;
-}
-.logo span{color:#c9a24d}
+    html {
+      scroll-behavior: smooth;
+    }
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:28px;
-}
-nav ul li{position:relative}
-nav ul a{
-  color:#333;
-  font-size:15px;
-  font-weight:600;
-  padding:8px 0;
-  position:relative;
-}
-nav ul a::after{
-  content:'';
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:3px;
-  background:#c9a24d;
-  transition:.4s;
-}
-nav ul a:hover::after{width:100%}
+    body {
+      background: var(--color-light);
+      color: var(--color-text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { 
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* Dropdown */
-.dropdown{
-  position:absolute;
-  top:140%;
-  left:0;
-  background:#fff;
-  min-width:230px;
-  display:none;
-  flex-direction:column;
-  box-shadow:0 15px 35px rgba(0,0,0,.15);
-  border-radius:8px;
-  overflow:hidden;
-}
-.dropdown a{
-  padding:12px 18px;
-  font-size:14px;
-}
-.dropdown a:hover{
-  background:#f5f5f5;
-  color:#c9a24d;
-}
-.has-dropdown:hover .dropdown{display:flex}
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-/* CTA */
-.header-cta a{
-  background:#c9a24d;
-  color:#fff;
-  padding:12px 26px;
-  border-radius:30px;
-  font-weight:700;
-  box-shadow:0 10px 25px rgba(201,162,77,.4);
-}
+    /* =============== HEADER & NAVBAR =============== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--color-white);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+    }
 
-/* ================= HERO ================= */
-.hero{
-  height:72vh;
-  background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg");
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-.hero-content{
-  color:#fff;
-  max-width:850px;
-  animation:fadeUp 1.2s ease;
-}
-.hero h1{
-  font-size:54px;
-  margin-bottom:15px;
-}
-.hero p{
-  font-size:20px;
-  opacity:.95;
-}
-.hero-buttons{
-  margin-top:30px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-}
-.hero-buttons a{
-  padding:14px 30px;
-  border-radius:30px;
-  font-weight:700;
-}
-.hero-primary{
-  background:#c9a24d;
-  color:#fff;
-}
-.hero-secondary{
-  border:2px solid #fff;
-  color:#fff;
-}
+    .navbar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+    }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
-}
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--color-dark);
+    }
 
-/* ================= CONTENT ================= */
-.container{
-  max-width:1350px;
-  margin:auto;
-  padding:80px 35px;
-}
-.section-title{
-  font-size:36px;
-  margin-bottom:10px;
-}
-.section-desc{
-  color:#666;
-  max-width:900px;
-  line-height:1.7;
-  margin-bottom:45px;
-}
+    .logo span {
+      color: var(--color-primary);
+      font-weight: 800;
+    }
 
-/* ================= GRID ================= */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:35px;
-}
-.card{
-  background:#fff;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 20px 45px rgba(0,0,0,.12);
-  transition:.45s;
-}
-.card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 30px 65px rgba(0,0,0,.18);
-}
-.card img{
-  width:100%;
-  height:240px;
-  object-fit:cover;
-}
-.card-body{
-  padding:22px;
-}
-.card-body h3{
-  font-size:19px;
-  margin-bottom:6px;
-}
-.card-body p{
-  font-size:14px;
-  color:#666;
-}
+    /* Navigation Menu */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+      align-items: center;
+    }
 
-/* ================= CTA ================= */
-.cta{
-  margin-top:100px;
-  background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-    url("https://images.pexels.com/photos/6489116/pexels-photo-6489116.jpeg");
-  background-size:cover;
-  background-position:center;
-  padding:90px 40px;
-  border-radius:30px;
-  color:#fff;
-  text-align:center;
-}
-.cta h2{
-  font-size:38px;
-  margin-bottom:12px;
-}
-.cta p{
-  font-size:18px;
-  max-width:700px;
-  margin:auto;
-  opacity:.95;
-}
-.cta a{
-  display:inline-block;
-  margin-top:30px;
-  background:#c9a24d;
-  color:#fff;
-  padding:16px 38px;
-  border-radius:30px;
-  font-weight:800;
-  box-shadow:0 12px 30px rgba(201,162,77,.45);
-}
+    nav li {
+      position: relative;
+    }
 
-/* ================= FOOTER ================= */
-footer{
-  background:#121212;
-  color:#bbb;
-  margin-top:120px;
-}
-.footer-grid{
-  max-width:1350px;
-  margin:auto;
-  padding:70px 35px;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
-}
-footer h3, footer h4{
-  color:#fff;
-  margin-bottom:12px;
-}
-footer p, footer a{
-  font-size:14px;
-  color:#bbb;
-}
-footer a:hover{color:#c9a24d}
-.footer-bottom{
-  border-top:1px solid #333;
-  text-align:center;
-  padding:20px;
-  font-size:13px;
-  color:#777;
-}
+    nav a {
+      color: var(--color-text);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition-smooth);
+      letter-spacing: 0.3px;
+    }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width:768px){
-  .hero h1{font-size:36px}
-  .footer-grid{grid-template-columns:1fr;text-align:center}
-  nav ul{display:none}
-}
-</style>
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 3px;
+      background: var(--color-primary);
+      transition: var(--transition-smooth);
+    }
+
+    nav a:hover {
+      color: var(--color-primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: absolute;
+      top: 140%;
+      left: 0;
+      background: var(--color-white);
+      min-width: 200px;
+      display: none;
+      flex-direction: column;
+      box-shadow: var(--shadow-lg);
+      border-radius: 12px;
+      overflow: hidden;
+      border-top: 3px solid var(--color-primary);
+    }
+
+    .dropdown a {
+      padding: 12px 18px;
+      font-size: 14px;
+      transition: var(--transition-smooth);
+    }
+
+    .dropdown a:hover {
+      background: var(--color-light);
+      color: var(--color-primary);
+      padding-left: 22px;
+    }
+
+    .has-dropdown:hover .dropdown {
+      display: flex;
+    }
+
+    /* CTA Button */
+    .header-cta a {
+      background: linear-gradient(135deg, var(--color-primary), #b8942a);
+      color: var(--color-white);
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(201, 162, 77, 0.35);
+      transition: var(--transition-smooth);
+    }
+
+    .header-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(201, 162, 77, 0.45);
+    }
+
+    /* =============== HERO SECTION =============== */
+    .hero {
+      height: 85vh;
+      min-height: 600px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(201, 162, 77, 0.2)), 
+                  url("https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      color: var(--color-white);
+      max-width: 900px;
+      z-index: 2;
+      animation: fadeUpHero 1.2s ease-out;
+      padding: 0 40px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      opacity: 0.95;
+      margin-bottom: 40px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: var(--transition-smooth);
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .hero-primary {
+      background: linear-gradient(135deg, var(--color-primary), #b8942a);
+      color: var(--color-white);
+      box-shadow: 0 15px 40px rgba(201, 162, 77, 0.4);
+    }
+
+    .hero-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(201, 162, 77, 0.5);
+    }
+
+    .hero-secondary {
+      border: 2px solid var(--color-white);
+      color: var(--color-white);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-secondary:hover {
+      background: rgba(201, 162, 77, 0.3);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    @keyframes fadeUpHero {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =============== CONTAINER =============== */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 15px;
+      color: var(--color-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .section-desc {
+      color: var(--color-text-light);
+      max-width: 800px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* =============== GRID & CARDS =============== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .card {
+      background: var(--color-white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      position: relative;
+      group: card;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover .card-image {
+      transform: scale(1.08);
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+      pointer-events: none;
+    }
+
+    .card-body {
+      padding: 30px;
+      position: relative;
+    }
+
+    .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--color-dark);
+      letter-spacing: -0.3px;
+    }
+
+    .card-body > p:nth-child(2) {
+      font-size: 14px;
+      color: var(--color-text-light);
+      margin-bottom: 15px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .card-budget {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 2px solid var(--color-light);
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-budget-label {
+      font-size: 12px;
+      color: var(--color-text-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* =============== BUDGET GUIDE SECTION =============== */
+    .budget-section {
+      margin: 80px 0;
+      padding: 60px 40px;
+      background: var(--color-white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .budget-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--color-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .budget-card {
+      background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+      padding: 35px;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .budget-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--color-primary), #b8942a);
+    }
+
+    .budget-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 162, 77, 0.2);
+    }
+
+    .budget-card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--color-dark);
+      margin-bottom: 15px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .budget-card .amount {
+      color: var(--color-primary);
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .budget-card p {
+      color: var(--color-text-light);
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    /* =============== CTA SECTION =============== */
+    .cta {
+      margin-top: 100px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.65), rgba(201, 162, 77, 0.3)),
+                  url("https://images.pexels.com/photos/6489116/pexels-photo-6489116.jpeg");
+      background-size: cover;
+      background-position: center;
+      padding: 100px 40px;
+      border-radius: 24px;
+      color: var(--color-white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(201, 162, 77, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.5px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 2;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--color-primary), #b8942a);
+      color: var(--color-white);
+      padding: 16px 45px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 15px 40px rgba(201, 162, 77, 0.4);
+      transition: var(--transition-smooth);
+      position: relative;
+      z-index: 2;
+      letter-spacing: 0.5px;
+    }
+
+    .cta a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(201, 162, 77, 0.5);
+    }
+
+    /* =============== FOOTER =============== */
+    footer {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      color: #bbb;
+      margin-top: 120px;
+      position: relative;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    footer h3, footer h4 {
+      color: var(--color-white);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+    }
+
+    footer h4 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    footer p, footer a {
+      font-size: 14px;
+      color: #bbb;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      transition: var(--transition-smooth);
+    }
+
+    footer a:hover {
+      color: var(--color-primary);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      text-align: center;
+      padding: 25px 40px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* =============== RESPONSIVE DESIGN =============== */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 80px 35px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .section-title {
+        font-size: 38px;
+      }
+
+      .budget-title {
+        font-size: 36px;
+      }
+
+      .cta h2 {
+        font-size: 36px;
+      }
+
+      .budget-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 14px 20px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero {
+        height: 70vh;
+      }
+
+      .hero-content {
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hero-buttons a {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .container {
+        padding: 60px 20px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .card-body {
+        padding: 22px;
+      }
+
+      .budget-section {
+        padding: 40px 20px;
+      }
+
+      .budget-title {
+        font-size: 28px;
+        margin-bottom: 35px;
+      }
+
+      .budget-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .budget-card {
+        padding: 25px;
+      }
+
+      .cta {
+        padding: 60px 20px;
+        border-radius: 16px;
+      }
+
+      .cta h2 {
+        font-size: 32px;
+      }
+
+      .cta p {
+        font-size: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
+        gap: 30px;
+        text-align: center;
+      }
+
+      footer a {
+        display: inline;
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: 60vh;
+        min-height: 450px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .budget-title {
+        font-size: 24px;
+      }
+
+      .card-body h3 {
+        font-size: 18px;
+      }
+
+      .cta h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <div class="navbar">
+      <div class="logo">Interior<span>Design</span></div>
 
-<header>
-  <div class="navbar">
-    <div class="logo">Interior<span>Design</span></div>
+      <nav>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#">Design Ideas</a>
+            <div class="dropdown">
+              <a href="kitchen.html">Modular Kitchen</a>
+              <a href="living-room.html">Living Room</a>
+              <a href="bedroom.html">Bedroom</a>
+              <a href="wardrobe.html">Wardrobe</a>
+              <a href="bathroom.html">Bathroom</a>
+            </div>
+          </li>
+          <li><a href="kitchen.html">Kitchens</a></li>
+          <li><a href="bedroom.html">Bedrooms</a></li>
+          <li><a href="living-room.html">Living Rooms</a></li>
+          <li><a href="wardrobe.html">Wardrobes</a></li>
+        </ul>
+      </nav>
 
-    <nav>
-      <ul>
-        <li class="has-dropdown">
-          <a href="#">Design Ideas</a>
-          <div class="dropdown">
-            <a href="kitchen.html">Modular Kitchen</a>
-            <a href="living-room.html">Living Room</a>
-            <a href="bedroom.html">Bedroom</a>
-            <a href="wardrobe.html">Wardrobe</a>
-            <a href="bathroom.html">Bathroom</a>
-          </div>
-        </li>
-        <li><a href="kitchen.html">Kitchens</a></li>
-        <li><a href="bedroom.html">Bedrooms</a></li>
-        <li><a href="living-room.html">Living Rooms</a></li>
-        <li><a href="wardrobe.html">Wardrobes</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-cta">
-      <a href="index.html">Book Free Consultation</a>
+      <div class="header-cta">
+        <a href="index.html">Book Consultation</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Modular Kitchen Designs</h1>
+      <p>Smart, stylish & functional modular kitchens designed for modern Indian homes</p>
+      <div class="hero-buttons">
+        <a href="#designs" class="hero-primary">Explore Designs</a>
+        <a href="index.html" class="hero-secondary">Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <section class="container" id="designs">
+    <h2 class="section-title">Popular Kitchen Designs</h2>
+    <p class="section-desc">
+      Explore a curated collection of modular kitchen designs crafted for efficiency, durability, and stunning aesthetics. Each design is tailored to maximize space and functionality while complementing your home's aesthetic.
+    </p>
+
+    <!-- Kitchen Cards Grid -->
+    <div class="grid">
+      <!-- Card 1: L-Shape -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/3214064/pexels-photo-3214064.jpeg" alt="L-Shape Modular Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>L-Shape Modular Kitchen</h3>
+          <p>Maximum storage • Indian layout • Workflow optimized</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹3,50,000 - ₹6,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: U-Shape -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/6782474/pexels-photo-6782474.jpeg" alt="U-Shape Modular Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>U-Shape Modular Kitchen</h3>
+          <p>Efficient workflow • Premium cabinets • Spacious design</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹5,00,000 - ₹8,50,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Parallel -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/6489116/pexels-photo-6489116.jpeg" alt="Parallel Kitchen Design" class="card-image">
+        <div class="card-body">
+          <h3>Parallel Kitchen Design</h3>
+          <p>Space efficient • Modern storage • Galley style</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹3,00,000 - ₹5,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Island -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/4800175/pexels-photo-4800175.jpeg" alt="Island Kitchen Design" class="card-image">
+        <div class="card-body">
+          <h3>Island Kitchen Design</h3>
+          <p>Luxury layout • Extra workspace • Premium finish</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹7,00,000 - ₹12,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Compact -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg" alt="Compact Kitchen Design" class="card-image">
+        <div class="card-body">
+          <h3>Compact Kitchen Design</h3>
+          <p>Small homes • Smart planning • Functional layout</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹1,75,000 - ₹3,50,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: White -->
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2017/07/09/03/19/kitchen-2486092_1280.jpg" alt="White Modular Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>White Modular Kitchen</h3>
+          <p>Bright look • Timeless design • Clean aesthetic</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹3,00,000 - ₹5,50,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: Modern Grey -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/5824529/pexels-photo-5824529.jpeg" alt="Modern Grey Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>Modern Grey Kitchen</h3>
+          <p>Matte finish • Contemporary style • Sophisticated</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹4,00,000 - ₹7,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: Indian Style -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/3926542/pexels-photo-3926542.jpeg" alt="Indian Style Modular Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>Indian Style Modular Kitchen</h3>
+          <p>Daily cooking • Easy maintenance • Practical design</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹2,50,000 - ₹4,50,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9: Luxury -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/5824883/pexels-photo-5824883.jpeg" alt="Luxury Kitchen Interior" class="card-image">
+        <div class="card-body">
+          <h3>Luxury Kitchen Interior</h3>
+          <p>Premium finishes • Designer look • High-end materials</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹8,00,000 - ₹15,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10: Small Apartment -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/20123287/pexels-photo-20123287.jpeg" alt="Small Apartment Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>Small Apartment Kitchen</h3>
+          <p>Compact layout • Maximum utility • Space optimization</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹2,00,000 - ₹4,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11: Open Kitchen -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/5824901/pexels-photo-5824901.jpeg" alt="Open Kitchen Design" class="card-image">
+        <div class="card-body">
+          <h3>Open Kitchen Design</h3>
+          <p>Living-dining combo • Modern feel • Social layout</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹4,50,000 - ₹8,00,000
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 12: Wood Finish -->
+      <div class="card">
+        <img src="https://images.pexels.com/photos/7027852/pexels-photo-7027852.jpeg" alt="Wood Finish Kitchen" class="card-image">
+        <div class="card-body">
+          <h3>Wood Finish Kitchen</h3>
+          <p>Natural texture • Warm aesthetics • Timeless appeal</p>
+          <div class="card-budget">
+            <span class="card-budget-label">Starting from</span>
+            ₹5,50,000 - ₹9,00,000
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Budget Range Guide Section -->
+    <div class="budget-section">
+      <h2 class="budget-title">Budget Range Guide</h2>
+      <div class="budget-grid">
+        <div class="budget-card">
+          <h3>Budget-Friendly</h3>
+          <p class="amount">₹1,75,000 - ₹2,50,000</p>
+          <p>Perfect for compact kitchens, basic layouts, and standard quality materials. Ideal for small homes and apartments with space constraints.</p>
+        </div>
+
+        <div class="budget-card">
+          <h3>Mid-Range</h3>
+          <p class="amount">₹3,00,000 - ₹6,00,000</p>
+          <p>L-shape and U-shape designs with premium finishes, quality cabinets, and modern features. Best for standard family homes.</p>
+        </div>
+
+        <div class="budget-card">
+          <h3>Premium</h3>
+          <p class="amount">₹7,00,000 - ₹15,00,000+</p>
+          <p>Island kitchens, luxury finishes, designer layouts, and high-end appliances. Exclusive designs for luxury homes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call-to-Action Section -->
+    <div class="cta">
+      <h2>Get Your Dream Modular Kitchen</h2>
+      <p>Schedule a free consultation with our expert designers to create a personalized kitchen layout with transparent pricing tailored to your budget.</p>
+      <a href="index.html">Schedule Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>InteriorDesign</h3>
+        <p>Premium modular kitchen and home interior solutions trusted by thousands of Indian homeowners. We bring your dream spaces to life with quality craftsmanship and innovative designs.</p>
+      </div>
+
+      <div>
+        <h4>Design Ideas</h4>
+        <p><a href="kitchen.html">Modular Kitchen</a></p>
+        <p><a href="living-room.html">Living Room</a></p>
+        <p><a href="bedroom.html">Bedroom</a></p>
+        <p><a href="wardrobe.html">Wardrobe</a></p>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <p><a href="contact.html">Contact Us</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+        <p><a href="#">Terms & Conditions</a></p>
+        <p><a href="#">FAQs</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 InteriorDesign. All Rights Reserved. | Design Excellence Since 2020
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="frontend-api.js"></script>
+</body>
+</html>
 
 <section class="hero">
   <div class="hero-content">
@@ -330,6 +1066,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>L-Shape Modular Kitchen</h3>
     <p>Maximum storage • Indian layout</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹3,50,000 - ₹6,00,000</p>
   </div>
 </div>
 
@@ -338,6 +1075,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>U-Shape Modular Kitchen</h3>
     <p>Efficient workflow • Premium cabinets</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹5,00,000 - ₹8,50,000</p>
   </div>
 </div>
 
@@ -346,6 +1084,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Parallel Kitchen Design</h3>
     <p>Space efficient • Modern storage</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹3,00,000 - ₹5,00,000</p>
   </div>
 </div>
 
@@ -354,6 +1093,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Island Kitchen Design</h3>
     <p>Luxury layout • Extra workspace</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹7,00,000 - ₹12,00,000</p>
   </div>
 </div>
 
@@ -362,6 +1102,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Compact Kitchen Design</h3>
     <p>Small homes • Smart planning</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹1,75,000 - ₹3,50,000</p>
   </div>
 </div>
 
@@ -370,6 +1111,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>White Modular Kitchen</h3>
     <p>Bright look • Timeless design</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹3,00,000 - ₹5,50,000</p>
   </div>
 </div>
 
@@ -378,6 +1120,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Modern Grey Kitchen</h3>
     <p>Matte finish • Contemporary style</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹4,00,000 - ₹7,00,000</p>
   </div>
 </div>
 
@@ -386,6 +1129,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Indian Style Modular Kitchen</h3>
     <p>Daily cooking • Easy maintenance</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹2,50,000 - ₹4,50,000</p>
   </div>
 </div>
 
@@ -394,6 +1138,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Luxury Kitchen Interior</h3>
     <p>Premium finishes • Designer look</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹8,00,000 - ₹15,00,000</p>
   </div>
 </div>
 
@@ -402,6 +1147,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Small Apartment Kitchen</h3>
     <p>Compact layout • Maximum utility</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹2,00,000 - ₹4,00,000</p>
   </div>
 </div>
 
@@ -410,6 +1156,7 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Open Kitchen Design</h3>
     <p>Living-dining combo • Modern feel</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹4,50,000 - ₹8,00,000</p>
   </div>
 </div>
 
@@ -418,13 +1165,35 @@ footer a:hover{color:#c9a24d}
   <div class="card-body">
     <h3>Wood Finish Kitchen</h3>
     <p>Natural texture • Warm aesthetics</p>
+    <p style="margin-top:10px; font-weight:600; color:#c9a24d;">Budget: ₹5,50,000 - ₹9,00,000</p>
   </div>
 </div>
   </div>
 
+  <div style="margin-top:80px; padding:60px 40px; background:#fff; border-radius:30px;">
+    <h2 style="color:#333; margin-bottom:40px; text-align:center; font-size:32px;">Budget Range Guide</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; max-width:1100px; margin:0 auto;">
+      <div style="background:#f9f9f9; padding:25px; border-radius:15px; border-left:5px solid #c9a24d;">
+        <h3 style="color:#333; margin-bottom:8px;">Budget-Friendly</h3>
+        <p style="color:#c9a24d; font-weight:700; font-size:18px; margin-bottom:8px;">₹1,75,000 - ₹2,50,000</p>
+        <p style="color:#666; font-size:14px;">Compact kitchens, basic layouts, standard materials</p>
+      </div>
+      <div style="background:#f9f9f9; padding:25px; border-radius:15px; border-left:5px solid #c9a24d;">
+        <h3 style="color:#333; margin-bottom:8px;">Mid-Range</h3>
+        <p style="color:#c9a24d; font-weight:700; font-size:18px; margin-bottom:8px;">₹3,00,000 - ₹6,00,000</p>
+        <p style="color:#666; font-size:14px;">L-shape, U-shape, premium finishes, quality cabinets</p>
+      </div>
+      <div style="background:#f9f9f9; padding:25px; border-radius:15px; border-left:5px solid #c9a24d;">
+        <h3 style="color:#333; margin-bottom:8px;">Premium</h3>
+        <p style="color:#c9a24d; font-weight:700; font-size:18px; margin-bottom:8px;">₹7,00,000 - ₹15,00,000+</p>
+        <p style="color:#666; font-size:14px;">Island kitchens, luxury finishes, designer layouts</p>
+      </div>
+    </div>
+  </div>
+
   <div class="cta">
     <h2>Get Your Dream Modular Kitchen</h2>
-    <p>Talk to expert designers, get personalised layouts & transparent pricing.</p>
+    <p>Talk to expert designers, get personalised layouts & transparent pricing for your budget.</p>
     <a href="index.html">Get Free Consultation</a>
   </div>
 </section>
