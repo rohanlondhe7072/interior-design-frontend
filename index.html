@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Pro - Authentication</title>
+    <link rel="stylesheet" href="auth-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side - Brand Section -->
+        <div class="brand-section">
+            <div class="brand-content">
+                <div class="brand-logo">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h1>Interior Design Pro</h1>
+                <p>Transform Your Space Into Your Dream Home</p>
+                <div class="brand-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Professional Designs</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Expert Consultants</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Budget Friendly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Auth Forms -->
+        <div class="auth-section">
+            <!-- Login Form -->
+            <div class="form-container login-form-container" id="loginContainer">
+                <div class="form-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your account to continue</p>
+                </div>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input 
+                                type="email" 
+                                id="loginEmail" 
+                                name="email" 
+                                placeholder="your@email.com" 
+                                required
+                            >
+                        </div>
+                        <span class="error-message" id="loginEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input 
+                                type="password" 
+                                id="loginPassword" 
+                                name="password" 
+                                placeholder="Enter your password" 
+                                required
+                            >
+                            <button type="button" class="toggle-password" data-target="loginPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="loginPasswordError"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>Sign In</span>
+                        <span class="loader" style="display: none;">
+                            <i class="fas fa-spinner"></i>
+                        </span>
+                    </button>
+
+                    <div class="form-message" id="loginMessage"></div>
+
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" class="switch-form" data-form="signup">Sign up here</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form-container signup-form-container hidden" id="signupContainer">
+                <div class="form-header">
+                    <h2>Create Account</h2>
+                    <p>Join us and start your design journey</p>
+                </div>
+
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input 
+                                type="text" 
+                                id="signupName" 
+                                name="name" 
+                                placeholder="John Doe" 
+                                required
+                            >
+                        </div>
+                        <span class="error-message" id="signupNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input 
+                                type="email" 
+                                id="signupEmail" 
+                                name="email" 
+                                placeholder="your@email.com" 
+                                required
+                            >
+                        </div>
+                        <span class="error-message" id="signupEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input 
+                                type="password" 
+                                id="signupPassword" 
+                                name="password" 
+                                placeholder="Minimum 6 characters" 
+                                required
+                            >
+                            <button type="button" class="toggle-password" data-target="signupPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="signupPasswordError"></span>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text">Strength: <strong id="strengthLevel">Weak</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input 
+                                type="password" 
+                                id="signupConfirmPassword" 
+                                name="confirmPassword" 
+                                placeholder="Re-enter your password" 
+                                required
+                            >
+                            <button type="button" class="toggle-password" data-target="signupConfirmPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="signupConfirmPasswordError"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="terms-check">
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>Create Account</span>
+                        <span class="loader" style="display: none;">
+                            <i class="fas fa-spinner"></i>
+                        </span>
+                    </button>
+
+                    <div class="form-message" id="signupMessage"></div>
+
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" class="switch-form" data-form="login">Sign in here</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

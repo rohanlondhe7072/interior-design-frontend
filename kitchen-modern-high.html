@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Luxury Kitchen Design – Premium | InteriorDesign</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins','Segoe UI',system-ui}
+body{background:#0a0e27; overflow-x:hidden;}
+a{text-decoration:none;color:inherit}
+
+/* HEADER */
+header{position:sticky;top:0;background:#1a1f3a;z-index:10;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.navbar{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:18px 24px}
+.logo{font-size:22px;font-weight:800;background:linear-gradient(90deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo span{color:#d4af37}
+
+/* NAVIGATION */
+nav{display:flex;align-items:center;gap:0}
+nav ul{list-style:none;display:flex;gap:20px}
+nav a{font-weight:600;color:#e8eef5;transition:.3s}
+nav a:hover{color:#d4af37}
+.header-cta a{background:linear-gradient(90deg,#d4af37,#ffd700);color:#0a0e27;padding:10px 18px;border-radius:26px;font-weight:700;transition:.3s}
+.header-cta a:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(212,175,55,.4)}
+
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;cursor:pointer;gap:6px;background:none;border:none;padding:0}
+.hamburger span{width:25px;height:3px;background:#d4af37;border-radius:3px;transition:.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+
+/* HERO */
+.hero{
+  height:70vh;
+  background:linear-gradient(135deg,rgba(10,14,39,.7),rgba(212,175,55,.15)),
+  url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=1400')
+  center/cover no-repeat;
+  display:flex;align-items:center;position:relative;overflow:hidden
+}
+
+.hero::before{
+  content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(212,175,55,.1),transparent);pointer-events:none
+}
+
+.hero-inner{max-width:1200px;margin:auto;padding:48px 24px;width:100%;position:relative;z-index:2}
+.hero h1{font-size:56px;font-weight:800;color:#fff;margin-bottom:12px;background:linear-gradient(90deg,#ffd700,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:#d4af37;max-width:650px;line-height:1.6}
+
+/* COMMON */
+.container{max-width:1200px;margin:auto;padding:80px 24px}
+.section-title{
+  font-size:42px;font-weight:800;margin-bottom:12px;
+  background:linear-gradient(90deg,#ffd700,#d4af37);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-align:center
+}
+.section-desc{color:#a8b5c8;max-width:900px;margin:0 auto 40px;line-height:1.8;text-align:center}
+
+/* LAYOUT */
+.color-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px}
+
+/* DESIGN SELECTOR */
+.design-selector{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.design-thumb{
+  background:#1a1f3a;border-radius:16px;overflow:hidden;cursor:pointer;
+  box-shadow:0 12px 28px rgba(0,0,0,.4);transition:.3s;border:2px solid #2a3050
+}
+.design-thumb:hover{transform:translateY(-6px);border-color:#d4af37}
+.design-thumb.active{border:2px solid #d4af37;box-shadow:0 0 20px rgba(212,175,55,.3)}
+.design-thumb img{width:100%;height:130px;object-fit:cover}
+.design-thumb .info{padding:12px}
+.design-thumb h4{font-size:14px;font-weight:800;margin-bottom:4px;color:#ffd700}
+.design-thumb p{font-size:12px;color:#a8b5c8;line-height:1.4}
+.badge{display:inline-block;font-size:11px;font-weight:700;color:#d4af37;background:#2a3050;padding:4px 8px;border-radius:4px}
+
+/* PREVIEW */
+.kitchen-preview{
+  position:relative;border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.6);border:2px solid #2a3050
+}
+.kitchen-preview img{
+  width:100%;height:440px;object-fit:cover;
+  filter:contrast(1.08) brightness(1.05)
+}
+.kitchen-preview::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at center,
+    rgba(212,175,55,.08),
+    transparent
+  );
+  opacity:1;transition:.5s;pointer-events:none
+}
+
+.preview-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#1a1f3a,#2a3050);
+  z-index:3;
+}
+
+.preview-placeholder h3{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:8px;
+  background:linear-gradient(90deg,#ffd700,#d4af37);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.preview-placeholder p{
+  font-size:15px;
+  color:#a8b5c8;
+  max-width:280px;
+}
+
+.preview-info{
+  position:absolute;
+  top:20px;
+  left:20px;
+  right:20px;
+  background:rgba(26,31,58,.95);
+  backdrop-filter:blur(10px);
+  padding:24px;
+  border-radius:16px;
+  z-index:4;
+  transition:.35s ease;
+  border:1px solid rgba(212,175,55,.2)
+}
+
+.preview-info h3{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#ffd700,#d4af37);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.preview-info p{
+  font-size:14px;
+  color:#a8b5c8;
+  margin-bottom:14px;
+  line-height:1.6;
+}
+
+.preview-info ul{
+  list-style:none;
+  margin-bottom:18px;
+}
+
+.preview-info li{
+  font-size:14px;
+  margin-bottom:8px;
+  color:#e8eef5;
+  padding-left:20px;
+  position:relative;
+}
+
+.preview-info li:before{
+  content:'✦';
+  position:absolute;
+  left:0;
+  color:#d4af37;
+}
+
+.preview-btn{
+  display:inline-block;
+  padding:12px 24px;
+  background:linear-gradient(90deg,#d4af37,#ffd700);
+  color:#0a0e27;
+  border-radius:6px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.preview-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px rgba(212,175,55,.4);
+}
+
+.preview-info.hide{
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.35s ease;
+}
+
+/* FEATURES SECTION */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  margin-bottom:60px;
+}
+
+.feature-card{
+  background:#1a1f3a;padding:28px;border-radius:12px;border:1px solid #2a3050;
+  transition:.3s;
+}
+
+.feature-card:hover{
+  border-color:#d4af37;
+  box-shadow:0 10px 30px rgba(212,175,55,.15);
+}
+
+.feature-card h4{
+  font-size:18px;font-weight:800;color:#ffd700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+
+.feature-card h4:before{
+  content:'';width:4px;height:4px;background:#d4af37;border-radius:50%}
+
+.feature-card p{
+  font-size:14px;color:#a8b5c8;line-height:1.6}
+
+/* MATERIALS TABLE */
+.materials-table{
+  overflow-x:auto;margin:40px 0;border-radius:12px;border:1px solid #2a3050
+}
+
+table{
+  width:100%;border-collapse:collapse;background:#1a1f3a
+}
+
+th{
+  background:linear-gradient(90deg,#2a3050,#1a1f3a);color:#ffd700;padding:16px;font-weight:700;text-align:left;border-bottom:2px solid #d4af37
+}
+
+td{
+  padding:14px 16px;border-bottom:1px solid #2a3050;color:#a8b5c8
+}
+
+tr:hover{background:#2a3050}
+
+/* WHY CHOOSE SECTION */
+.why-choose{
+  background:linear-gradient(135deg,#1a1f3a,#2a3050);
+  padding:60px;
+  border-radius:16px;
+  border:1px solid #2a3050;
+  margin-bottom:60px;
+}
+
+.why-choose h3{
+  font-size:32px;font-weight:800;margin-bottom:30px;text-align:center;
+  background:linear-gradient(90deg,#ffd700,#d4af37);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.why-list{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px
+}
+
+.why-item{
+  display:flex;gap:16px;align-items:flex-start
+}
+
+.why-item:before{
+  content:'◆';color:#d4af37;font-size:20px;flex-shrink:0;margin-top:2px
+}
+
+.why-item p{
+  font-size:15px;color:#a8b5c8;line-height:1.6}
+
+/* CTA SECTION */
+.cta-section{
+  background:linear-gradient(135deg,#d4af37,#ffd700);
+  padding:60px 40px;
+  border-radius:16px;
+  text-align:center;margin-bottom:40px
+}
+
+.cta-section h2{
+  font-size:36px;font-weight:800;color:#0a0e27;margin-bottom:16px
+}
+
+.cta-section p{
+  font-size:18px;color:#1a1f3a;margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto
+}
+
+.cta-btn{
+  display:inline-block;
+  padding:16px 40px;
+  background:#0a0e27;
+  color:#ffd700;
+  border-radius:8px;
+  font-weight:800;
+  font-size:16px;
+  transition:.3s;
+  border:2px solid #0a0e27;
+}
+
+.cta-btn:hover{
+  background:transparent;
+  color:#0a0e27;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hamburger{display:flex}
+  
+  .navbar{padding:18px}
+  
+  nav{
+    position:absolute;
+    top:70px;
+    right:0;
+    left:0;
+    background:#1a1f3a;
+    flex-direction:column;
+    max-height:0;
+    overflow:hidden;
+    transition:.3s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+  }
+  
+  nav.active{
+    max-height:400px;
+  }
+  
+  nav ul{
+    flex-direction:column;
+    gap:0;
+    padding:20px 24px;
+    width:100%;
+  }
+  
+  nav ul li{
+    padding:14px 0;
+    border-bottom:1px solid #2a3050;
+  }
+  
+  nav ul li:last-child{
+    border-bottom:none;
+  }
+  
+  .header-cta{
+    position:absolute;
+    bottom:-60px;
+    left:0;
+    right:0;
+    padding:15px 24px;
+    border-top:1px solid #2a3050;
+    width:100%;
+  }
+  
+  nav.active ~ .header-cta{
+    bottom:-70px;
+  }
+  
+  .header-cta a{
+    width:100%;
+    text-align:center;
+    display:block;
+  }
+  
+  .hero{height:50vh}
+  .hero h1{font-size:36px}
+  .hero p{font-size:16px}
+  
+  .color-wrap{grid-template-columns:1fr;gap:30px}
+  .kitchen-preview img{height:320px}
+  
+  .design-selector{grid-template-columns:repeat(2,1fr)}
+  
+  .section-title{font-size:32px}
+  
+  .features-grid{grid-template-columns:1fr;gap:20px}
+  
+  .why-choose{padding:40px;margin-bottom:40px}
+  .why-choose h3{font-size:26px}
+  
+  .cta-section{padding:40px 24px}
+  .cta-section h2{font-size:28px}
+  .cta-section p{font-size:16px}
+}
+
+@media(max-width:480px){
+  .navbar{padding:14px 16px}
+  .logo{font-size:18px}
+  
+  .hero h1{font-size:24px}
+  .hero p{font-size:14px}
+  
+  .container{padding:60px 16px}
+  .section-title{font-size:24px}
+  .section-desc{font-size:14px}
+  
+  .design-selector{grid-template-columns:1fr}
+  .kitchen-preview img{height:280px}
+  
+  .preview-info{
+    top:10px;
+    left:10px;
+    right:10px;
+    padding:16px;
+  }
+  
+  .preview-info h3{font-size:18px}
+  .preview-info p{font-size:12px}
+  .preview-info li{font-size:11px}
+  
+  .features-grid{grid-template-columns:1fr}
+  
+  .why-choose{padding:24px;margin-bottom:30px}
+  .why-choose h3{font-size:20px}
+  
+  .cta-section{padding:30px 16px;margin-bottom:30px}
+  .cta-section h2{font-size:22px}
+  .cta-section p{font-size:14px}
+  
+  .materials-table{overflow-x:auto}
+  table{font-size:13px}
+  td,th{padding:10px 8px}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">Interior<span>Design</span></div>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kitchen-modern-low.html">Low Budget</a></li>
+        <li><a href="kitchen-modern-medium.html">Medium Budget</a></li>
+        <li><a href="kitchen-modern-high.html">Premium Luxury</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="header-cta"><a href="#consultation">Book Consultation</a></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Luxury Kitchen Design — Premium</h1>
+    <p>Exquisite finishes, bespoke layouts, and timeless elegance. Elevate your culinary space with uncompromising quality.</p>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Curated Premium Kitchen Designs</h2>
+  <p class="section-desc">
+    Handpicked luxury kitchen layouts featuring marble, premium metals, smart technology, and exclusive craftsmanship designed for discerning homeowners.
+  </p>
+
+  <div class="color-wrap">
+    <!-- LEFT -->
+    <div class="design-selector">
+
+      <script>
+        const kitchens=[
+          {img:"7027852",name:"Marble & Gold Kitchen",price:"₹5–6.5 Lakh",desc:"Luxury marble countertops with gold accents"},
+          {img:"1080721",name:"Sleek Black Premium Kitchen",price:"₹5.5–7 Lakh",desc:"Modern minimalism with smart appliances"},
+          {img:"5824901",name:"Island Luxury Kitchen",price:"₹6–7.5 Lakh",desc:"Statement island with premium seating"},
+          {img:"6312356",name:"Two-Tone Marble Kitchen",price:"₹5.2–6.8 Lakh",desc:"Contemporary contrast with marble elegance"},
+          {img:"2343468",name:"Rose Gold Kitchen",price:"₹5.8–7.2 Lakh",desc:"Metallic finishes with warm tones"},
+          {img:"6207744",name:"Charcoal Glass Kitchen",price:"₹6.2–7.8 Lakh",desc:"Dark elegance with glass frontals"},
+          {img:"7027852",name:"Walnut & Brass Kitchen",price:"₹5.5–6.8 Lakh",desc:"Warm woods with brass hardware"},
+          {img:"5824896",name:"White Marble Kitchen",price:"₹5.3–7 Lakh",desc:"Clean luxury with marble surfaces"},
+          {img:"5824894",name:"Graphite Premium Kitchen",price:"₹6–7.5 Lakh",desc:"Sophisticated dark theme design"},
+          {img:"5824892",name:"Bespoke Custom Kitchen",price:"₹6.5–8+ Lakh",desc:"Made-to-order luxury configuration"}
+        ];
+
+        document.write(
+          kitchens.concat(kitchens).slice(0,20).map((k,i)=>`
+          <div class="design-thumb"
+            data-img="https://images.pexels.com/photos/${k.img}/pexels-photo-${k.img}.jpeg?auto=compress&cs=tinysrgb&w=1600">
+            <img src="https://images.pexels.com/photos/${k.img}/pexels-photo-${k.img}.jpeg?auto=compress&cs=tinysrgb&w=600" alt="${k.name}">
+            <div class="info">
+              <span class="badge">${k.price}</span>
+              <h4>${k.name}</h4>
+              <p>${k.desc}</p>
+            </div>
+          </div>
+        `).join('')
+        );
+      </script>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="kitchen-preview" id="kitchenBox">
+      <div class="preview-info">
+        <h3>Exquisite Luxury Kitchen</h3>
+        <p>
+          Crafted for those who demand perfection. Premium materials, innovative design, and exclusive finishes create 
+          an unparalleled culinary masterpiece.
+        </p>
+
+        <ul>
+          <li>Marble, granite, or quartz countertops</li>
+          <li>Premium brass, gold, or rose gold hardware</li>
+          <li>Smart integrated kitchen appliances</li>
+          <li>Custom lighting with mood control</li>
+          <li>High-end stainless steel fixtures</li>
+          <li>Luxury soft-close systems</li>
+          <li>Bespoke cabinetry options</li>
+          <li>Premium finishes & textures</li>
+        </ul>
+
+        <a href="#consultation" class="preview-btn">Schedule Luxury Consultation</a>
+      </div>
+
+      <div class="preview-placeholder" id="previewText">
+        <h3>Select Your Luxury Kitchen</h3>
+        <p>Choose a premium design from the left to preview</p>
+      </div>
+
+      <img id="previewImg"
+        style="display:none"
+        src="https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg"
+        alt="Luxury Kitchen Preview">
+
+      <video id="previewVideo"
+        muted loop playsinline
+        style="display:none;width:100%;height:440px;object-fit:cover;">
+        <source src="kitchen-luxury-video.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Premium Features & Materials</h2>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <h4>Luxury Countertops</h4>
+      <p>Italian marble, Brazilian granite, premium quartz, and engineered stone with exquisite finishes and durability.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Premium Hardware</h4>
+      <p>Brass, gold-plated, and rose gold finishing with soft-close mechanisms and German engineering precision.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Smart Integration</h4>
+      <p>IoT-enabled appliances, automated lighting systems, temperature control, and voice-activated features.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Bespoke Cabinetry</h4>
+      <p>Custom-built designs tailored to your space, preference, and lifestyle with premium wood selections.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Ambient Lighting</h4>
+      <p>LED under-cabinet, accent, and mood lighting with color temperature control and automated scheduling.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Exclusive Finishes</h4>
+      <p>Matte black, charcoal, walnut veneer, glass panels, and mirror finishes for sophisticated aesthetics.</p>
+    </div>
+  </div>
+
+  <div class="materials-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Material</th>
+          <th>Features</th>
+          <th>Durability</th>
+          <th>Price Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Italian Marble</strong></td>
+          <td>Elegant veining, luxury appeal, timeless</td>
+          <td>High (with care)</td>
+          <td>₹500–1500/sq ft</td>
+        </tr>
+        <tr>
+          <td><strong>Brazilian Granite</strong></td>
+          <td>Heat-resistant, scratch-proof, premium colors</td>
+          <td>Very High</td>
+          <td>₹400–1200/sq ft</td>
+        </tr>
+        <tr>
+          <td><strong>Engineered Quartz</strong></td>
+          <td>Non-porous, stain-resistant, consistent patterns</td>
+          <td>Very High</td>
+          <td>₹300–800/sq ft</td>
+        </tr>
+        <tr>
+          <td><strong>Brass & Gold Hardware</strong></td>
+          <td>Luxury finish, corrosion-resistant coating</td>
+          <td>High</td>
+          <td>Premium pricing</td>
+        </tr>
+        <tr>
+          <td><strong>German Soft-Close</strong></td>
+          <td>Silent operation, precision engineering</td>
+          <td>Lifetime</td>
+          <td>₹1500–3000 per hinge</td>
+        </tr>
+        <tr>
+          <td><strong>Smart Appliances</strong></td>
+          <td>WiFi-enabled, voice control, energy-efficient</td>
+          <td>10+ years</td>
+          <td>₹80k–200k+ per appliance</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="container">
+  <div class="why-choose">
+    <h3>Why Choose Premium Luxury Kitchen?</h3>
+    <div class="why-list">
+      <div class="why-item">
+        <p><strong>Uncompromising Quality</strong> — Every element is selected for excellence, durability, and aesthetic perfection.</p>
+      </div>
+      <div class="why-item">
+        <p><strong>Bespoke Design</strong> — Customized layouts and finishes tailored exclusively to your preferences and space.</p>
+      </div>
+      <div class="why-item">
+        <p><strong>Premium Materials</strong> — Marble, granite, brass, and imported finishes that age beautifully and last generations.</p>
+      </div>
+      <div class="why-item">
+        <p><strong>Smart Technology</strong> — Integrated IoT systems for convenience, efficiency, and modern living.</p>
+      </div>
+      <div class="why-item">
+        <p><strong>Expert Craftsmanship</strong> — Precision installation by certified professionals with luxury kitchen experience.</p>
+      </div>
+      <div class="why-item">
+        <p><strong>Lifetime Warranty</strong> — Premium guarantee covering materials and workmanship for years to come.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready for Your Luxury Kitchen Transformation?</h2>
+  <p>Schedule a personalized consultation with our design experts. We'll create a bespoke kitchen that reflects your unique style and elevates your home.</p>
+  <a href="#" class="cta-btn">Schedule Luxury Consultation Today</a>
+</section>
+
+<script>
+    // Video file for first kitchen
+    const kitchenVideos = [
+        "89f4376d-ba6e-48df-9c94-d6716fe4ff7e.mp4"
+    ];
+</script>
+
+<script>
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  });
+});
+
+// KITCHEN PREVIEW
+const previewImg = document.getElementById('previewImg');
+const previewVideo = document.getElementById('previewVideo');
+const previewText = document.getElementById('previewText');
+const kitchenBox = document.getElementById('kitchenBox');
+const previewInfo = document.querySelector('.preview-info');
+
+function bindKitchenClicks(){
+  document.querySelectorAll('.design-thumb').forEach((t,index)=>{
+    t.onclick = () => {
+      // hide info box
+      previewInfo.classList.add('hide');
+
+      // active border
+      document.querySelectorAll('.design-thumb')
+        .forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+
+      previewText.style.display = 'none';
+      kitchenBox.style.setProperty('--kitchen-color','transparent');
+
+      if(index === 0){
+        previewImg.style.display = 'none';
+        previewVideo.style.display = 'block';
+        previewVideo.currentTime = 0;
+        previewVideo.play();
+      } else {
+        previewVideo.pause();
+        previewVideo.style.display = 'none';
+        previewImg.style.display = 'block';
+        previewImg.src = t.dataset.img;
+      }
+    };
+  });
+}
+
+// IMPORTANT: wait till DOM + document.write complete
+window.addEventListener('load', bindKitchenClicks);
+</script>
+
+</body>
+</html>
